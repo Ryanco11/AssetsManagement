@@ -32,7 +32,7 @@ def WriteAssetInfo():
                 dress_type = os.path.join(r, file).split('/')[-2]
                 ws.cell(2 + count, 3).value = dress_type
 
-                AssetSubType(count, dress_type)
+
 
                 ### Prafab Path
                 ws.cell(2 + count, 5).value = os.path.join(r, file).replace(project_path, "")
@@ -51,6 +51,10 @@ def WriteAssetInfo():
 
                 ## Sprite Path
                 FindSprite(count, namecode, "png", 14, "缩略图")
+
+
+                ### SubType
+                AssetSubType(count, dress_type, ws.cell(2 + count, 14).value)
 
 
 
@@ -98,23 +102,58 @@ def FindSprite(count, namecode, asset_type, col, lost_text):
             ws.cell(2 + count, col).value += "|-|"
             ws.cell(2 + count, col).value += path
 
-def AssetSubType(count, dress_type):
-    if dress_type == "headwear":
+def AssetSubType(count, dress_type, sprite_value):
+    if sprite_value == "缩略图缺失":
+        return
+
+    if dress_type == "headwear" and int(sprite_value[0]) == 1:
         ws.cell(2 + count, 4).value = "头饰1"
-    elif dress_type == "baldric":
+    elif dress_type == "headwear" and int(sprite_value[0]) > 1:
+        ws.cell(2 + count, 4).value = "头饰2"
+        return
+
+    if dress_type == "baldric" and int(sprite_value[0]) == 1:
         ws.cell(2 + count, 4).value = "背包1"
-    elif dress_type == "glasses":
+    elif dress_type == "baldric" and int(sprite_value[0]) > 1:
+        ws.cell(2 + count, 4).value = "背包2"
+        return
+
+    if dress_type == "glasses" and int(sprite_value[0]) == 1:
         ws.cell(2 + count, 4).value = "眼镜1"
-    elif dress_type == "pants":
+    elif dress_type == "glasses" and int(sprite_value[0]) > 1:
+        ws.cell(2 + count, 4).value = "眼镜2"
+        return
+
+    if dress_type == "pants" and int(sprite_value[0]) == 1:
         ws.cell(2 + count, 4).value = "裤子1"
-    elif dress_type == "suit":
+    elif dress_type == "pants" and int(sprite_value[0]) > 1:
+        ws.cell(2 + count, 4).value = "裤子2"
+        return
+
+    if dress_type == "suit" and int(sprite_value[0]) == 1:
         ws.cell(2 + count, 4).value = "套装1"
-    elif dress_type == "shoes":
+    elif dress_type == "suit" and int(sprite_value[0]) > 1:
+        ws.cell(2 + count, 4).value = "套装2"
+        return
+
+    if dress_type == "shoes" and int(sprite_value[0]) == 1:
         ws.cell(2 + count, 4).value = "鞋子1"
-    elif dress_type == "hair":
+    elif dress_type == "shoes" and int(sprite_value[0]) > 1:
+        ws.cell(2 + count, 4).value = "鞋子2"
+        return
+
+    if dress_type == "hair" and int(sprite_value[0]) == 1:
         ws.cell(2 + count, 4).value = "头发1"
-    elif dress_type == "shirt":
+    elif dress_type == "hair" and int(sprite_value[0]) > 1:
+        ws.cell(2 + count, 4).value = "头发2"
+        return
+
+    if dress_type == "shirt" and int(sprite_value[0]) == 1:
         ws.cell(2 + count, 4).value = "上衣1"
+    elif dress_type == "shirt" and int(sprite_value[0]) > 1:
+        ws.cell(2 + count, 4).value = "上衣2"
+        return
+
 
 
 

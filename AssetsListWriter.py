@@ -96,6 +96,25 @@ def FindSprite(count, namecode, asset_type, col, lost_text):
             ws.cell(2 + count, col).value += "|-|"
             ws.cell(2 + count, col).value += path
 
+def AssetType(count, dress_type):
+    if dress_type == "headwear":
+        ws.cell(2 + count, 4).value = "头饰1"
+    elif dress_type == "baldric":
+        ws.cell(2 + count, 4).value = "背包1"
+    elif dress_type == "glasses":
+        ws.cell(2 + count, 4).value = "眼镜1"
+    elif dress_type == "pants":
+        ws.cell(2 + count, 4).value = "裤子1"
+    elif dress_type == "suit":
+        ws.cell(2 + count, 4).value = "套装1"
+    elif dress_type == "shoes":
+        ws.cell(2 + count, 4).value = "鞋子1"
+    elif dress_type == "hair":
+        ws.cell(2 + count, 4).value = "头发1"
+    elif dress_type == "shirt":
+        ws.cell(2 + count, 4).value = "上衣1"
+
+
 
 
 WriteAssetInfo()

@@ -32,6 +32,8 @@ def WriteAssetInfo():
                 dress_type = os.path.join(r, file).split('/')[-2]
                 ws.cell(2 + count, 3).value = dress_type
 
+                AssetSubType(count, dress_type)
+
                 ### Prafab Path
                 ws.cell(2 + count, 5).value = os.path.join(r, file).replace(project_path, "")
 
@@ -96,7 +98,7 @@ def FindSprite(count, namecode, asset_type, col, lost_text):
             ws.cell(2 + count, col).value += "|-|"
             ws.cell(2 + count, col).value += path
 
-def AssetType(count, dress_type):
+def AssetSubType(count, dress_type):
     if dress_type == "headwear":
         ws.cell(2 + count, 4).value = "头饰1"
     elif dress_type == "baldric":

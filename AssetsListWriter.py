@@ -38,7 +38,7 @@ def WriteAssetInfo():
                 ws.cell(2 + count, 7).value = os.path.join(r, file).replace(project_path, "")
 
                 ### Assets Folder Path
-                ws.cell(2 + count, 7).value = ""
+                ws.cell(2 + count, 9).value = ""
 
 
                 ## Texture Path

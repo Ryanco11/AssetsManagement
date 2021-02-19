@@ -13,7 +13,7 @@ def AccessAssetPath(last_row):
         print("this is asset: " +  ws.cell(row, 2).value)
 
         ### Assets
-        file_col_list = [5, 7, 8, 10, 12, 14]
+        file_col_list = [7, 9, 10, 12, 14, 16]
 
         for col in file_col_list:
             print("asset " + str(col) + ": " + ws.cell(row, col).value)
@@ -38,7 +38,7 @@ def AccessAssetSpecificSetting(last_row):
 
 def GetLastRow():
     for row in range(1, ws.max_row):
-        if (ws.cell(row, 2).value is None):
+        if (ws.cell(row, 4).value is None):
             last_row = row;  # this last_row value is actual plus one by actual last row in excel, cus py access col by minis one
             print("last row is : " + str(last_row))
             return last_row

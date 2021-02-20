@@ -49,69 +49,92 @@ def GetLastRow():
     return last_row
 
 
-# def GetDressType(asset_list):
-#     for asset in asset_list:
-#         if asset.__contains__("/A/"):
+def GetNewAssetInfo():
+
+    #get all asset in art path
+    # get source files [0]:fbx [1]:png
+    sperate_asset_list = GetAssetList()
+    fbx_list = sperate_asset_list[0]
+    png_list = sperate_asset_list[1]
+
+    asset_list = []
+
+    for i in fbx_list:
+        # print("fbx:" + i)
+        asset_list.append(i)
+    for i in png_list:
+        # print("png:" + i)
+        asset_list.append(i)
+
+    for i in asset_list:
+        print("all_assets: " + i)
+
+    #get new added asset list
+        #get last row from new excel
+    last_row = GetLastRow()
+
+    excel_namecode_list = []
+    new_name_list = []
+    mt_namecode_list = []
+        #get namecode list from excel
+    for row in range(2, last_row):
+        excel_namecode_list.append(ws.cell(row, 4).value)
+        print("ws: " + ws.cell(row, 4).value)
+
+        #remove existing asset
+    for asset in asset_list:
+        for namecode in excel_namecode_list:
+            if asset.__contains__(namecode):
+                asset_list.remove(asset)
+                break
+
+    for i in asset_list:
+        print("new_assets: " + i)
+    new_asset_list = asset_list
+
+    #sort by name code
+        #get new name code list
+    for asset in asset_list:
+        mt_namecode_list.append(asset.split(r'/')[-2])
+    print(mt_namecode_list)
+
+        #remove mt name code
+    for i in mt_namecode_list:
+        if i not in new_name_list:
+            new_name_list.append(i)
+
+    print(new_name_list)
+
+    return new_asset_list, new_name_list
 
 
-    # if asset_list.__contains__("_mask"):
+def GetDressType(new_asset_list ,new_name_list):
+    last_row = GetLastRow()
+    # print(last_row)
+    # for each name code
+    for namecode in new_name_list:
+        print("t-nc:" + namecode)
+        for asset in new_asset_list:
+            print("t-asset:" + asset)
+            if asset.__contains__(namecode):
+                #for specfic file path with its namecode
+                #write type
+                if asset.__contains__(r'/X/'):
+                    print("write in")
+                    ws.cell(last_row, 4).value = namecode
+                    ws.cell(last_row, 5).value = "shoes"
+                    last_row += 1
+                    break
+                #move file
+                #write rest info
+
+    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
 
 
 
+    # if new_asset_list.__contains__("_mask"):
 
-
-###function start###
-
-
-#get all asset in art path
-# get source files [0]:fbx [1]:png
-sperate_asset_list = GetAssetList()
-fbx_list = sperate_asset_list[0]
-png_list = sperate_asset_list[1]
-
-asset_list = []
-
-for i in fbx_list:
-    # print("fbx:" + i)
-    asset_list.append(i)
-for i in png_list:
-    # print("png:" + i)
-    asset_list.append(i)
-
-for i in asset_list:
-    print("assets: " + i)
-
-#get new added asset list
-    #get last row from new excel
-last_row = GetLastRow()
-
-namecode_list = []
-mt_namecode_list = []
-    #get namecode list from excel
-for row in range(2, last_row):
-    namecode_list.append(ws.cell(row, 4).value)
-    print("ws: " + ws.cell(row, 4).value)
-
-    #remove existing asset
-for asset in asset_list:
-    for namecode in namecode_list:
-        if asset.__contains__(namecode):
-            asset_list.remove(asset)
-            break
-
-#sort by name code
-    #get new name code list
-for asset in asset_list:
-    mt_namecode_list.append(asset.split(r'/')[-2])
-
-for i in mt_namecode_list:
-    if i not in namecode_list:
-        namecode_list.append(i)
-
-print(namecode_list)
-
-
-    #create
+# create
 
 #detect dress type
 
@@ -121,3 +144,8 @@ print(namecode_list)
 
     #write excel
 
+
+
+# Start
+new_asset_list, new_name_list = GetNewAssetInfo()
+GetDressType(new_asset_list, new_name_list)

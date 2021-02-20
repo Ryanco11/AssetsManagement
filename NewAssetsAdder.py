@@ -108,7 +108,7 @@ def GetNewAssetInfo():
     return new_asset_list, new_name_list
 
 
-def GetDressType(new_asset_list ,new_name_list):
+def ProcessAssetInfo(new_asset_list ,new_name_list):
     last_row = GetLastRow()
     # print(last_row)
     # for each name code
@@ -119,18 +119,78 @@ def GetDressType(new_asset_list ,new_name_list):
             if asset.__contains__(namecode):
                 #for specfic file path with its namecode
                 #write type
-                if asset.__contains__(r'/X/'):
-                    print("write in")
+                if asset.__contains__(r'/A/') or asset.__contains__(r'/FQ/'):
+                    print("write in suit")
+                    ws.cell(last_row, 4).value = namecode
+                    ws.cell(last_row, 5).value = "suit"
+                    last_row += 1
+                    break
+                elif asset.__contains__(r'/K/') or asset.__contains__(r'/HQ/'):
+                    print("write in pants")
+                    ws.cell(last_row, 4).value = namecode
+                    ws.cell(last_row, 5).value = "pants"
+                    last_row += 1
+                    break
+                elif asset.__contains__(r'/T/'):
+                    print("write in headwear")
+                    ws.cell(last_row, 4).value = namecode
+                    ws.cell(last_row, 5).value = "headwear"
+                    last_row += 1
+                    break
+                elif asset.__contains__(r'/F/'):
+                    print("write in hair")
+                    ws.cell(last_row, 4).value = namecode
+                    ws.cell(last_row, 5).value = "hair"
+                    last_row += 1
+                    break
+                elif asset.__contains__(r'/M/'):
+                    print("write in hair")
+                    ws.cell(last_row, 4).value = namecode
+                    ws.cell(last_row, 5).value = "hair"
+                    last_row += 1
+                    break
+                elif asset.__contains__(r'/QT/'):
+                    print("write in bladic")
+                    ws.cell(last_row, 4).value = namecode
+                    ws.cell(last_row, 5).value = "bladic"
+                    last_row += 1
+                    break
+                elif asset.__contains__(r'/W/'):
+                    print("write in sock")
+                    ws.cell(last_row, 4).value = namecode
+                    ws.cell(last_row, 5).value = "sock"
+                    last_row += 1
+                    break
+                elif asset.__contains__(r'/X/'):
+                    print("write in shoes")
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "shoes"
                     last_row += 1
                     break
+                elif asset.__contains__(r'/Y/'):
+                    print("write in glasses")
+                    ws.cell(last_row, 4).value = namecode
+                    ws.cell(last_row, 5).value = "glasses"
+                    last_row += 1
+                    break
+                elif asset.__contains__(r'/S/'):
+                    print("write in shirt")
+                    ws.cell(last_row, 4).value = namecode
+                    ws.cell(last_row, 5).value = "shirt"
+                    last_row += 1
+                    break
+
+
                 #move file
                 #write rest info
 
     wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
 
 
+
+def MoveFiles():
+
+def WritePathInfo():
 
     # if new_asset_list.__contains__("_mask"):
 
@@ -148,4 +208,4 @@ def GetDressType(new_asset_list ,new_name_list):
 
 # Start
 new_asset_list, new_name_list = GetNewAssetInfo()
-GetDressType(new_asset_list, new_name_list)
+ProcessAssetInfo(new_asset_list, new_name_list)

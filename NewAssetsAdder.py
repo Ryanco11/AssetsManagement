@@ -313,8 +313,12 @@ def MoveFiles(namecode, new_asset_list, dress_type):
                 # mutli assets
                 # for _01 _02... textures
                 if asset.__contains__("_0"):
-                    pfb_path_to_create = prefab_path + dress_type + "/" + namecode + "/texture"
+                    #create root folder
+                    if not os.path.isdir(prefab_path + dress_type + "/" + namecode):
+                        os.mkdir(prefab_path + dress_type + "/" + namecode)
 
+                    #create texture fodler
+                    pfb_path_to_create = prefab_path + dress_type + "/" + namecode + "/texture"
                     if os.path.isdir(pfb_path_to_create):
                         print("Exists")
                     else:
@@ -366,4 +370,4 @@ def MoveFiles(namecode, new_asset_list, dress_type):
 
 # Start
 new_asset_list, new_name_list = GetNewAssetInfo()
-# ProcessAssetInfo(new_asset_list, new_name_list)
+ProcessAssetInfo(new_asset_list, new_name_list)

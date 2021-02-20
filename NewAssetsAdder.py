@@ -124,7 +124,9 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "suit"
                     ws.cell(last_row, 6).value = "普通套装"
-                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "suit")
+                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "suit")
+                    if muti:
+                        ws.cell(last_row, 6).value = "多贴图套装"
                     ws.cell(last_row, 10).value = png_text
                     ws.cell(last_row, 12).value = fbx_text
                     mat_text = fbx_text.replace("FBX", "mat")
@@ -138,7 +140,9 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "pants"
                     ws.cell(last_row, 6).value = "普通裤子"
-                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "pants")
+                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "pants")
+                    if muti:
+                        ws.cell(last_row, 6).value = "多贴图裤子"
                     ws.cell(last_row, 10).value = png_text
                     ws.cell(last_row, 12).value = fbx_text
                     mat_text = fbx_text.replace("FBX", "mat")
@@ -152,7 +156,15 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "headwear"
                     ws.cell(last_row, 6).value = "普通头饰"
-                    # MoveFiles(namecode, new_asset_list, "headwear")
+                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "headwear")
+                    if muti:
+                        ws.cell(last_row, 6).value = "多贴图头饰"
+                    ws.cell(last_row, 10).value = png_text
+                    ws.cell(last_row, 12).value = fbx_text
+                    mat_text = fbx_text.replace("FBX", "mat")
+                    mat_text = mat_text.replace("fbx", "mat")
+                    ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 7).value = unity_prefab_path + "headwear/" + namecode + ".prefab"
                     last_row += 1
                     break
                 elif asset.__contains__(r'/F/'):
@@ -160,7 +172,9 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "hair"
                     ws.cell(last_row, 6).value = "普通头发"
-                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "hair")
+                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "hair")
+                    if muti:
+                        ws.cell(last_row, 6).value = "多贴图头发"
                     ws.cell(last_row, 10).value = png_text
                     ws.cell(last_row, 12).value = fbx_text
                     mat_text = fbx_text.replace("FBX", "mat")
@@ -169,26 +183,28 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 7).value = unity_prefab_path + "hair/" + namecode + ".prefab"
                     last_row += 1
                     break
-                elif asset.__contains__(r'/M/'):
-                    print("write in hair")
-                    ws.cell(last_row, 4).value = namecode
-                    ws.cell(last_row, 5).value = "hair"
-                    ws.cell(last_row, 6).value = "帽子头发"
-                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "hair")
-                    ws.cell(last_row, 10).value = png_text
-                    ws.cell(last_row, 12).value = fbx_text
-                    mat_text = fbx_text.replace("FBX", "mat")
-                    mat_text = mat_text.replace("fbx", "mat")
-                    ws.cell(last_row, 14).value = mat_text
-                    ws.cell(last_row, 7).value = unity_prefab_path + "hair/" + namecode + ".prefab"
-                    last_row += 1
-                    break
+                # elif asset.__contains__(r'/M/'):
+                #     print("write in hair")
+                #     ws.cell(last_row, 4).value = namecode
+                #     ws.cell(last_row, 5).value = "hair"
+                #     ws.cell(last_row, 6).value = "帽子头发"
+                #     png_text, fbx_text = MoveFiles(namecode, new_asset_list, "hair")
+                #     ws.cell(last_row, 10).value = png_text
+                #     ws.cell(last_row, 12).value = fbx_text
+                #     mat_text = fbx_text.replace("FBX", "mat")
+                #     mat_text = mat_text.replace("fbx", "mat")
+                #     ws.cell(last_row, 14).value = mat_text
+                #     ws.cell(last_row, 7).value = unity_prefab_path + "hair/" + namecode + ".prefab"
+                #     last_row += 1
+                #     break
                 elif asset.__contains__(r'/QT/'):
                     print("write in bladic")
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "baldric"
                     ws.cell(last_row, 6).value = "普通背包"
-                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "baldric")
+                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "baldric")
+                    if muti:
+                        ws.cell(last_row, 6).value = "多贴图背包"
                     ws.cell(last_row, 10).value = png_text
                     ws.cell(last_row, 12).value = fbx_text
                     mat_text = fbx_text.replace("FBX", "mat")
@@ -209,7 +225,9 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "shoes"
                     ws.cell(last_row, 6).value = "普通鞋子"
-                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "shoes")
+                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "shoes")
+                    if muti:
+                        ws.cell(last_row, 6).value = "多贴图鞋子"
                     ws.cell(last_row, 10).value = png_text
                     ws.cell(last_row, 12).value = fbx_text
                     mat_text = fbx_text.replace("FBX", "mat")
@@ -223,7 +241,9 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "glasses"
                     ws.cell(last_row, 6).value = "普通眼镜"
-                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "glasses")
+                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "glasses")
+                    if muti:
+                        ws.cell(last_row, 6).value = "多贴图眼镜"
                     ws.cell(last_row, 10).value = png_text
                     ws.cell(last_row, 12).value = fbx_text
                     mat_text = fbx_text.replace("FBX", "mat")
@@ -237,7 +257,9 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "shirt"
                     ws.cell(last_row, 6).value = "普通上衣"
-                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "shirt")
+                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "shirt")
+                    if muti:
+                        ws.cell(last_row, 6).value = "多贴图上衣"
                     ws.cell(last_row, 10).value = png_text
                     ws.cell(last_row, 12).value = fbx_text
                     mat_text = fbx_text.replace("FBX", "mat")
@@ -259,7 +281,7 @@ def MoveFiles(namecode, new_asset_list, dress_type):
     png_text = ""
     fbx_count = 0
     png_count = 0
-
+    muti = False
     for asset in new_asset_list:
         if asset.__contains__(namecode):
             #create folder in unity model folder
@@ -289,7 +311,7 @@ def MoveFiles(namecode, new_asset_list, dress_type):
     fbx_text = str(fbx_count) + fbx_text
     png_text = str(png_count) + png_text
 
-    return png_text, fbx_text
+    return png_text, fbx_text, muti
 
 
 # Start

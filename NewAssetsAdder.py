@@ -314,7 +314,7 @@ def MoveFiles(namecode, new_asset_list, dress_type):
             else:
                 # mutli assets
                 # for _01 _02... textures
-                if asset.__contains__("_0") and dress_type != "hair":
+                if asset.__contains__("_0") and dress_type != "hair" and asset.lower().endswith(".png"):
                     #create root folder
                     if not os.path.isdir(prefab_path + dress_type + "/" + namecode):
                         os.mkdir(prefab_path + dress_type + "/" + namecode)

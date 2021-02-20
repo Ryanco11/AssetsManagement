@@ -6,12 +6,12 @@ excel_path = r'/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx'
 project_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/'
 artsrc_path = r'/Users/ryanco/Projects/avatar_art_resources/'
 
-fbx_path = r'/Users/ryanco/Projects/avatar_art_resources/animation/bangding/'
-png_path = r'/Users/ryanco/Projects/avatar_art_resources/model/change clothes_new/'
+fbx_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
+png_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
 
 #get excel
 wb = openpyxl.load_workbook(excel_path)
-ws = wb['AssetsInfo - Assets_Art_model_c']
+ws = wb['NewAssets - Assets_Art_model_co']
 
 namecode = "AA0269G"
 dress_type = "shirt"
@@ -99,6 +99,10 @@ for asset in asset_list:
             break
 
 #sort by name code
+    #get new name code list
+    for asset in asset_list:
+        print(asset.split(r'/')[-2])
+    #create
 
 #detect dress type
 

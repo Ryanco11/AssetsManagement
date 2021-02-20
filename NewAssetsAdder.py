@@ -122,7 +122,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "suit"
                     ws.cell(last_row, 6).value = "普通套装"
-                    MoveFiles(namecode, new_asset_list, "suit")
+                    # MoveFiles(namecode, new_asset_list, "suit")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/K/') or asset.__contains__(r'/HQ/'):
@@ -130,7 +130,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "pants"
                     ws.cell(last_row, 6).value = "普通裤子"
-                    MoveFiles(namecode, new_asset_list, "pants")
+                    # MoveFiles(namecode, new_asset_list, "pants")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/T/'):
@@ -138,7 +138,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "headwear"
                     ws.cell(last_row, 6).value = "普通头饰"
-                    MoveFiles(namecode, new_asset_list, "headwear")
+                    # MoveFiles(namecode, new_asset_list, "headwear")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/F/'):
@@ -146,7 +146,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "hair"
                     ws.cell(last_row, 6).value = "普通头发"
-                    MoveFiles(namecode, new_asset_list, "hair")
+                    # MoveFiles(namecode, new_asset_list, "hair")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/M/'):
@@ -154,7 +154,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "hair"
                     ws.cell(last_row, 6).value = "帽子头发"
-                    MoveFiles(namecode, new_asset_list, "hair")
+                    # MoveFiles(namecode, new_asset_list, "hair")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/QT/'):
@@ -162,7 +162,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "baldric"
                     ws.cell(last_row, 6).value = "普通背包"
-                    MoveFiles(namecode, new_asset_list, "baldric")
+                    # MoveFiles(namecode, new_asset_list, "baldric")
                     last_row += 1
                     break
                 # elif asset.__contains__(r'/W/'):
@@ -177,7 +177,9 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "shoes"
                     ws.cell(last_row, 6).value = "普通鞋子"
-                    MoveFiles(namecode, new_asset_list, "shoes")
+                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "shoes")
+                    ws.cell(last_row, 10).value = png_text
+                    ws.cell(last_row, 12).value = fbx_text
                     last_row += 1
                     break
                 elif asset.__contains__(r'/Y/'):
@@ -185,7 +187,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "glasses"
                     ws.cell(last_row, 6).value = "普通眼镜"
-                    MoveFiles(namecode, new_asset_list, "glasses")
+                    # MoveFiles(namecode, new_asset_list, "glasses")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/S/'):
@@ -193,7 +195,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "shirt"
                     ws.cell(last_row, 6).value = "普通上衣"
-                    MoveFiles(namecode, new_asset_list, "shirt")
+                    # MoveFiles(namecode, new_asset_list, "shirt")
                     last_row += 1
                     break
 
@@ -205,6 +207,11 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
 
 
 def MoveFiles(namecode, new_asset_list, dress_type):
+    fbx_text = ""
+    png_text = ""
+    fbx_count = 0
+    png_count = 0
+
     for asset in new_asset_list:
         if asset.__contains__(namecode):
             #create folder in unity model folder
@@ -222,7 +229,21 @@ def MoveFiles(namecode, new_asset_list, dress_type):
             #copy file to new folder
             shutil.copy2(asset, path_to_create)  # target filename is /dst/dir/file.ext
 
-            # shutil.copy2('/src/dir/file.ext', '/dst/dir/newname.ext')  # complete target filename given
+            if asset.lower().endswith(".fbx"):
+                fbx_count += 1
+                text = path_to_create + "/" + os.path.basename(asset)
+                fbx_text += "|-|" + text.replace(project_path, "")
+            elif asset.lower().endswith(".png"):
+                png_count += 1
+                text = path_to_create + "/" + os.path.basename(asset)
+                png_text += "|-|" + text.replace(project_path, "")
+
+    fbx_text = str(fbx_count) + fbx_text
+    png_text = str(png_count) + png_text
+
+    return png_text, fbx_text
+#
+
 
 
 #

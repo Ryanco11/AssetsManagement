@@ -14,9 +14,6 @@ png_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
 wb = openpyxl.load_workbook(excel_path)
 ws = wb['NewAssets - Assets_Art_model_co']
 
-# namecode = "AA0269G"
-# dress_type = "shirt"
-# sub_type = "普通上衣"
 
 def GetAssetList():
     fbx_list = []

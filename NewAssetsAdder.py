@@ -290,25 +290,6 @@ def MoveFiles(namecode, new_asset_list, dress_type):
     png_text = str(png_count) + png_text
 
     return png_text, fbx_text
-#
-
-
-
-#
-# def WritePathInfo():
-
-    # if new_asset_list.__contains__("_mask"):
-
-# create
-
-#detect dress type
-
-#detect sub type
-    ###for each name code###
-    #copy to unity folder
-
-    #write excel
-
 
 
 # Start

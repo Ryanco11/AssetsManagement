@@ -9,6 +9,7 @@ artsrc_path = r'/Users/ryanco/Projects/avatar_art_resources/'
 unity_prefab_path = r'Assets/Art/BundleResources/Dress/'
 unity_asset_path = r'Assets/Art/model/coat/'
 asset_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art/model/coat/'
+prefab_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art/BundleResources/Dress/'
 fbx_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
 png_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
 
@@ -100,7 +101,7 @@ def GetNewAssetInfo():
 
         #remove mt name code
     for i in mt_namecode_list:
-        if i not in new_name_list:
+        if i not in new_name_list and i not in excel_namecode_list:
             new_name_list.append(i)
 
     print(new_name_list)
@@ -277,27 +278,76 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
 
 
 def MoveFiles(namecode, new_asset_list, dress_type):
+    ### for all flies matchs namecode
     fbx_text = ""
     png_text = ""
     fbx_count = 0
     png_count = 0
     muti = False
+
+    for asset in new_asset_list:
+        if asset.__contains__(namecode) and asset.__contains__("_01"):
+            muti = True
+
     for asset in new_asset_list:
         if asset.__contains__(namecode):
             #create folder in unity model folder
-            path_to_create = asset_path + dress_type + "/" + namecode
-            if os.path.isdir(path_to_create):
-                print("Exists")
-            else:
-                try:
-                    os.mkdir(path_to_create)
-                except OSError:
-                    print("Creation of the directory %s failed" % path_to_create)
-                else:
-                    print("Successfully created the directory %s " % path_to_create)
 
-            #copy file to new folder
-            shutil.copy2(asset, path_to_create)  # target filename is /dst/dir/file.ext
+            if not muti:
+                ###normal asset
+                path_to_create = asset_path + dress_type + "/" + namecode
+                if os.path.isdir(path_to_create):
+                    print("Exists")
+                else:
+                    try:
+                        os.mkdir(path_to_create)
+                    except OSError:
+                        print("Creation of the directory %s failed" % path_to_create)
+                    else:
+                        print("Successfully created the directory %s " % path_to_create)
+
+                # copy file to new folder
+                shutil.copy2(asset, path_to_create)  # target filename is /dst/dir/file.ext
+
+            else:
+                # mutli assets
+                # for _01 _02... textures
+                if asset.__contains__("_0"):
+                    pfb_path_to_create = prefab_path + dress_type + "/" + namecode + "/texture"
+
+                    if os.path.isdir(pfb_path_to_create):
+                        print("Exists")
+                    else:
+                        try:
+                            os.mkdir(pfb_path_to_create)
+                        except OSError:
+                            print("Creation of the directory %s failed" % pfb_path_to_create)
+                        else:
+                            print("Successfully created the directory %s " % pfb_path_to_create)
+
+                    # copy file to new folder
+                    shutil.copy2(asset, pfb_path_to_create)  # target filename is /dst/dir/file.ext
+
+                else:
+                    ###normal asset
+                    path_to_create = asset_path + dress_type + "/" + namecode
+                    if os.path.isdir(path_to_create):
+                        print("Exists")
+                    else:
+                        try:
+                            os.mkdir(path_to_create)
+                        except OSError:
+                            print("Creation of the directory %s failed" % path_to_create)
+                        else:
+                            print("Successfully created the directory %s " % path_to_create)
+
+                    # copy file to new folder
+                    shutil.copy2(asset, path_to_create)  # target filename is /dst/dir/file.ext
+
+
+
+
+
 
             if asset.lower().endswith(".fbx"):
                 fbx_count += 1
@@ -316,4 +366,4 @@ def MoveFiles(namecode, new_asset_list, dress_type):
 
 # Start
 new_asset_list, new_name_list = GetNewAssetInfo()
-ProcessAssetInfo(new_asset_list, new_name_list)
+# ProcessAssetInfo(new_asset_list, new_name_list)

@@ -61,7 +61,7 @@ def GetLastRow():
 
 
 ###function start###
-last_row = GetLastRow()
+
 
 #get all asset in art path
 # get source files [0]:fbx [1]:png
@@ -75,6 +75,9 @@ for i in png_list:
     print("png:" + i)
 
 #get new added asset list
+    #get loat row from new excel
+last_row = GetLastRow()
+
 
 #sort by name code
 

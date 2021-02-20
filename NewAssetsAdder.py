@@ -281,8 +281,10 @@ def MoveFiles(namecode, new_asset_list, dress_type):
     ### for all flies matchs namecode
     fbx_text = ""
     png_text = ""
+    sprite_text = ""
     fbx_count = 0
     png_count = 0
+    sprite_count = 0
     muti = False
 
     for asset in new_asset_list:
@@ -312,7 +314,7 @@ def MoveFiles(namecode, new_asset_list, dress_type):
             else:
                 # mutli assets
                 # for _01 _02... textures
-                if asset.__contains__("_0"):
+                if asset.__contains__("_0") and dress_type != "hair":
                     #create root folder
                     if not os.path.isdir(prefab_path + dress_type + "/" + namecode):
                         os.mkdir(prefab_path + dress_type + "/" + namecode)

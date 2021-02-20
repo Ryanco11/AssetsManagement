@@ -65,18 +65,26 @@ def GetLastRow():
 
 #get all asset in art path
 # get source files [0]:fbx [1]:png
-asset_list = GetAssetList(namecode, dress_type, sub_type)
-fbx_list = asset_list[0]
-png_list = asset_list[1]
+s_asset_list = GetAssetList(namecode, dress_type, sub_type)
+fbx_list = s_asset_list[0]
+png_list = s_asset_list[1]
+
+asset_list = []
 
 for i in fbx_list:
-    print("fbx:" + i)
+    # print("fbx:" + i)
+    asset_list.append(i)
 for i in png_list:
-    print("png:" + i)
+    # print("png:" + i)
+    asset_list.append(i)
+
+for i in asset_list:
+    print(i)
 
 #get new added asset list
     #get loat row from new excel
 last_row = GetLastRow()
+
 
 
 #sort by name code

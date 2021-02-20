@@ -82,9 +82,14 @@ for i in asset_list:
     print(i)
 
 #get new added asset list
-    #get loat row from new excel
+    #get last row from new excel
 last_row = GetLastRow()
 
+namecode_list = []
+    #get namecode list from excel
+for row in range(2, last_row):
+    namecode_list.append(ws.cell(row, 4).value)
+    print(ws.cell(row, 4).value)
 
 
 #sort by name code

@@ -6,6 +6,8 @@ from pathlib import Path
 excel_path = r'/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx'
 project_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/'
 artsrc_path = r'/Users/ryanco/Projects/avatar_art_resources/'
+unity_prefab_path = r'Assets/Art/BundleResources/Dress/'
+unity_asset_path = r'Assets/Art/model/coat/'
 asset_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art/model/coat/'
 fbx_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
 png_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
@@ -122,7 +124,13 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "suit"
                     ws.cell(last_row, 6).value = "普通套装"
-                    # MoveFiles(namecode, new_asset_list, "suit")
+                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "suit")
+                    ws.cell(last_row, 10).value = png_text
+                    ws.cell(last_row, 12).value = fbx_text
+                    mat_text = fbx_text.replace("FBX", "mat")
+                    mat_text = mat_text.replace("fbx", "mat")
+                    ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 7).value = unity_prefab_path + "suit/" + namecode + ".prefab"
                     last_row += 1
                     break
                 elif asset.__contains__(r'/K/') or asset.__contains__(r'/HQ/'):
@@ -130,7 +138,13 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "pants"
                     ws.cell(last_row, 6).value = "普通裤子"
-                    # MoveFiles(namecode, new_asset_list, "pants")
+                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "pants")
+                    ws.cell(last_row, 10).value = png_text
+                    ws.cell(last_row, 12).value = fbx_text
+                    mat_text = fbx_text.replace("FBX", "mat")
+                    mat_text = mat_text.replace("fbx", "mat")
+                    ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 7).value = unity_prefab_path + "pants/" + namecode + ".prefab"
                     last_row += 1
                     break
                 elif asset.__contains__(r'/T/'):
@@ -146,7 +160,13 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "hair"
                     ws.cell(last_row, 6).value = "普通头发"
-                    # MoveFiles(namecode, new_asset_list, "hair")
+                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "hair")
+                    ws.cell(last_row, 10).value = png_text
+                    ws.cell(last_row, 12).value = fbx_text
+                    mat_text = fbx_text.replace("FBX", "mat")
+                    mat_text = mat_text.replace("fbx", "mat")
+                    ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 7).value = unity_prefab_path + "hair/" + namecode + ".prefab"
                     last_row += 1
                     break
                 elif asset.__contains__(r'/M/'):
@@ -154,7 +174,13 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "hair"
                     ws.cell(last_row, 6).value = "帽子头发"
-                    # MoveFiles(namecode, new_asset_list, "hair")
+                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "hair")
+                    ws.cell(last_row, 10).value = png_text
+                    ws.cell(last_row, 12).value = fbx_text
+                    mat_text = fbx_text.replace("FBX", "mat")
+                    mat_text = mat_text.replace("fbx", "mat")
+                    ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 7).value = unity_prefab_path + "hair/" + namecode + ".prefab"
                     last_row += 1
                     break
                 elif asset.__contains__(r'/QT/'):
@@ -162,7 +188,13 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "baldric"
                     ws.cell(last_row, 6).value = "普通背包"
-                    # MoveFiles(namecode, new_asset_list, "baldric")
+                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "baldric")
+                    ws.cell(last_row, 10).value = png_text
+                    ws.cell(last_row, 12).value = fbx_text
+                    mat_text = fbx_text.replace("FBX", "mat")
+                    mat_text = mat_text.replace("fbx", "mat")
+                    ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 7).value = unity_prefab_path + "baldric/" + namecode + ".prefab"
                     last_row += 1
                     break
                 # elif asset.__contains__(r'/W/'):
@@ -180,6 +212,10 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     png_text, fbx_text = MoveFiles(namecode, new_asset_list, "shoes")
                     ws.cell(last_row, 10).value = png_text
                     ws.cell(last_row, 12).value = fbx_text
+                    mat_text = fbx_text.replace("FBX", "mat")
+                    mat_text = mat_text.replace("fbx", "mat")
+                    ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 7).value = unity_prefab_path + "shoes/" + namecode + ".prefab"
                     last_row += 1
                     break
                 elif asset.__contains__(r'/Y/'):
@@ -187,7 +223,13 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "glasses"
                     ws.cell(last_row, 6).value = "普通眼镜"
-                    # MoveFiles(namecode, new_asset_list, "glasses")
+                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "glasses")
+                    ws.cell(last_row, 10).value = png_text
+                    ws.cell(last_row, 12).value = fbx_text
+                    mat_text = fbx_text.replace("FBX", "mat")
+                    mat_text = mat_text.replace("fbx", "mat")
+                    ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 7).value = unity_prefab_path + "glasses/" + namecode + ".prefab"
                     last_row += 1
                     break
                 elif asset.__contains__(r'/S/'):
@@ -195,7 +237,13 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "shirt"
                     ws.cell(last_row, 6).value = "普通上衣"
-                    # MoveFiles(namecode, new_asset_list, "shirt")
+                    png_text, fbx_text = MoveFiles(namecode, new_asset_list, "shirt")
+                    ws.cell(last_row, 10).value = png_text
+                    ws.cell(last_row, 12).value = fbx_text
+                    mat_text = fbx_text.replace("FBX", "mat")
+                    mat_text = mat_text.replace("fbx", "mat")
+                    ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 7).value = unity_prefab_path + "shirt/" + namecode + ".prefab"
                     last_row += 1
                     break
 

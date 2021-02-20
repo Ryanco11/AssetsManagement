@@ -17,24 +17,25 @@ namecode = "AA0269G"
 dress_type = "shirt"
 sub_type = "普通上衣"
 
-def AddShirt(namecode, dress_type, sub_type):
-    asset_list = []
+def GetAssetList(namecode, dress_type, sub_type):
+    fbx_list = []
+    png_list = []
 
 ###fbx
     for r, d, f in os.walk(fbx_path):
         for file in f:
             # print(file)
             if file.lower().__contains__(namecode.lower()) and os.path.join(r, file).lower().__contains__("update") and file.lower().endswith(".fbx"):
-                asset_list.append(os.path.join(r, file).replace(project_path, ""))
+                fbx_list.append(os.path.join(r, file).replace(project_path, ""))
 
 ### png
     for r, d, f in os.walk(png_path):
         for file in f:
             # print(file)
             if file.lower().__contains__(namecode.lower()) and os.path.join(r, file).lower().__contains__("update") and file.lower().endswith(".png"):
-                asset_list.append(os.path.join(r, file).replace(project_path, ""))
+                png_list.append(os.path.join(r, file).replace(project_path, ""))
 
-    return asset_list
+    return fbx_list, png_list
 
 def GetLastRow():
     # last_row = 0
@@ -48,12 +49,30 @@ def GetLastRow():
     return last_row
 
 
+# def GetDressType(asset_list):
+#     for asset in asset_list:
+#         if asset.__contains__("/A/"):
+
+
+    # if asset_list.__contains__("_mask"):
+
+
+
 
 
 
 ###function start###
-
 last_row = GetLastRow()
+
+#get all asset in art path
+
+#get new added asset list
+
+#sort by name code
+    ###for each name code###
+    #copy to unity folder
+
+    #write excel
 
 #loop from last to upper
 for row in range(1, last_row):
@@ -61,13 +80,13 @@ for row in range(1, last_row):
     if ws.cell(cur_row, 7).value is None:
         ###for every new asset
 
-        #get source files
-        asset_list = AddShirt(namecode, dress_type, sub_type)
+        #get source files [0]:fbx [1]:png
+        asset_list = GetAssetList(namecode, dress_type, sub_type)
+        fbx_list = asset_list[0]
+        png_list = asset_list[1]
 
         #copy asset
-        for i in asset_list:
-            print(i)
-
-    #value is not null, end operation
-    else:
-        break
+        for i in fbx_list:
+            print("fbx:" + i)
+        for i in png_list:
+            print("png:" + i)

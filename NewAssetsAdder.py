@@ -60,33 +60,29 @@ def GetLastRow():
 
 
 
-
 ###function start###
 last_row = GetLastRow()
 
 #get all asset in art path
+# get source files [0]:fbx [1]:png
+asset_list = GetAssetList(namecode, dress_type, sub_type)
+fbx_list = asset_list[0]
+png_list = asset_list[1]
+
+for i in fbx_list:
+    print("fbx:" + i)
+for i in png_list:
+    print("png:" + i)
 
 #get new added asset list
 
 #sort by name code
+
+#detect dress type
+
+#detect sub type
     ###for each name code###
     #copy to unity folder
 
     #write excel
 
-#loop from last to upper
-for row in range(1, last_row):
-    cur_row = last_row - row
-    if ws.cell(cur_row, 7).value is None:
-        ###for every new asset
-
-        #get source files [0]:fbx [1]:png
-        asset_list = GetAssetList(namecode, dress_type, sub_type)
-        fbx_list = asset_list[0]
-        png_list = asset_list[1]
-
-        #copy asset
-        for i in fbx_list:
-            print("fbx:" + i)
-        for i in png_list:
-            print("png:" + i)

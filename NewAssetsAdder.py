@@ -1,7 +1,18 @@
 import openpyxl
 import os
 import shutil
+import datetime
 from pathlib import Path
+
+now = datetime.datetime.now()
+year = '{:02d}'.format(now.year)
+month = '{:02d}'.format(now.month)
+day = '{:02d}'.format(now.day)
+hour = '{:02d}'.format(now.hour)
+minute = '{:02d}'.format(now.minute)
+day_month_year = '{}-{}-{}'.format(year, month, day)
+
+print('day_month_year: ' + day_month_year)
 
 excel_path = r'/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx'
 project_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/'
@@ -123,6 +134,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                 #write type
                 if asset.__contains__(r'/A/') or asset.__contains__(r'/FQ/'):
                     print("write in suit")
+                    ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "suit"
                     ws.cell(last_row, 6).value = "普通套装"
@@ -140,6 +152,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     break
                 elif asset.__contains__(r'/K/') or asset.__contains__(r'/HQ/'):
                     print("write in pants")
+                    ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "pants"
                     ws.cell(last_row, 6).value = "普通裤子"
@@ -157,6 +170,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     break
                 elif asset.__contains__(r'/T/'):
                     print("write in headwear")
+                    ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "headwear"
                     ws.cell(last_row, 6).value = "普通头饰"
@@ -174,6 +188,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     break
                 elif asset.__contains__(r'/F/'):
                     print("write in hair")
+                    ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "hair"
                     ws.cell(last_row, 6).value = "普通头发"
@@ -205,6 +220,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                 #     break
                 elif asset.__contains__(r'/QT/'):
                     print("write in bladic")
+                    ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "baldric"
                     ws.cell(last_row, 6).value = "普通背包"
@@ -229,6 +245,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                 #     break
                 elif asset.__contains__(r'/X/'):
                     print("write in shoes")
+                    ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "shoes"
                     ws.cell(last_row, 6).value = "普通鞋子"
@@ -246,6 +263,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     break
                 elif asset.__contains__(r'/Y/'):
                     print("write in glasses")
+                    ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "glasses"
                     ws.cell(last_row, 6).value = "普通眼镜"
@@ -263,6 +281,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     break
                 elif asset.__contains__(r'/S/'):
                     print("write in shirt")
+                    ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "shirt"
                     ws.cell(last_row, 6).value = "普通上衣"

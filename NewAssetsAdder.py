@@ -12,6 +12,7 @@ asset_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/A
 prefab_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art/BundleResources/Dress/'
 fbx_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
 png_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
+sprite_path = r'Assets/Art/BundleResources/Sprites/'
 
 #get excel
 wb = openpyxl.load_workbook(excel_path)
@@ -358,25 +359,30 @@ def MoveFiles(namecode, new_asset_list, dress_type):
                     # copy file to new folder
                     shutil.copy2(asset, path_to_create)  # target filename is /dst/dir/file.ext
 
-            if not muti:
-                ##get png and fbx text
-                if asset.lower().endswith(".fbx"):
-                    fbx_count += 1
-                    text = path_to_create + "/" + os.path.basename(asset)
-                    fbx_text += "|-|" + text.replace(project_path, "")
-                elif asset.lower().endswith(".png"):
-                    png_count += 1
-                    text = path_to_create + "/" + os.path.basename(asset)
+            ##get png and fbx text
+            if asset.lower().endswith(".fbx"):
+                fbx_count += 1
+                text = path_to_create + "/" + os.path.basename(asset)
+                fbx_text += "|-|" + text.replace(project_path, "")
+            elif asset.lower().endswith(".png"):
+                png_count += 1
+                text = path_to_create + "/" + os.path.basename(asset)
+                png_text += "|-|" + text.replace(project_path, "")
 
-                    png_text += "|-|" + text.replace(project_path, "")
 
-                    if asset.__contains__("_0"):
-                        sprite_count += 1
-                        sprite_text += "|-|" + text.replace(project_path, "")
+                sprite_count += 1
+                text = sprite_path + dress_type + "/" + os.path.basename(asset)
+                sprite_text += "|-|" + text
+
+                # if not asset.__contains__("_0"):
+                #     sprite_count -= 1
+                #     sprite_text = sprite_text.replace(text, "")
+                #     sprite_text = sprite_text.replace("|-|", "")
 
     fbx_text = str(fbx_count) + fbx_text
     png_text = str(png_count) + png_text
-
+    sprite_text = str(sprite_count) + sprite_text
+    print("sprite_text:" + sprite_text)
     return png_text, fbx_text, sprite_text, muti
 
 

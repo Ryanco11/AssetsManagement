@@ -91,6 +91,12 @@ for row in range(2, last_row):
     namecode_list.append(ws.cell(row, 4).value)
     print(ws.cell(row, 4).value)
 
+    #remove existing asset
+for asset in asset_list:
+    for namecode in namecode_list:
+        if asset.__contains__(namecode):
+            asset_list.remove(asset)
+            break
 
 #sort by name code
 

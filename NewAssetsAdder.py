@@ -125,7 +125,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "suit"
                     ws.cell(last_row, 6).value = "普通套装"
-                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "suit")
+                    png_text, fbx_text, sprite_text, muti = MoveFiles(namecode, new_asset_list, "suit")
                     if muti:
                         ws.cell(last_row, 6).value = "多贴图套装"
                     ws.cell(last_row, 10).value = png_text
@@ -133,6 +133,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = fbx_text.replace("FBX", "mat")
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = unity_prefab_path + "suit/" + namecode + ".prefab"
                     last_row += 1
                     break
@@ -141,7 +142,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "pants"
                     ws.cell(last_row, 6).value = "普通裤子"
-                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "pants")
+                    png_text, fbx_text, sprite_text, muti = MoveFiles(namecode, new_asset_list, "pants")
                     if muti:
                         ws.cell(last_row, 6).value = "多贴图裤子"
                     ws.cell(last_row, 10).value = png_text
@@ -149,6 +150,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = fbx_text.replace("FBX", "mat")
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = unity_prefab_path + "pants/" + namecode + ".prefab"
                     last_row += 1
                     break
@@ -157,7 +159,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "headwear"
                     ws.cell(last_row, 6).value = "普通头饰"
-                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "headwear")
+                    png_text, fbx_text,sprite_text,  muti = MoveFiles(namecode, new_asset_list, "headwear")
                     if muti:
                         ws.cell(last_row, 6).value = "多贴图头饰"
                     ws.cell(last_row, 10).value = png_text
@@ -165,6 +167,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = fbx_text.replace("FBX", "mat")
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = unity_prefab_path + "headwear/" + namecode + ".prefab"
                     last_row += 1
                     break
@@ -173,7 +176,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "hair"
                     ws.cell(last_row, 6).value = "普通头发"
-                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "hair")
+                    png_text, fbx_text,sprite_text,  muti = MoveFiles(namecode, new_asset_list, "hair")
                     if muti:
                         ws.cell(last_row, 6).value = "多贴图头发"
                     ws.cell(last_row, 10).value = png_text
@@ -181,6 +184,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = fbx_text.replace("FBX", "mat")
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = unity_prefab_path + "hair/" + namecode + ".prefab"
                     last_row += 1
                     break
@@ -203,7 +207,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "baldric"
                     ws.cell(last_row, 6).value = "普通背包"
-                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "baldric")
+                    png_text, fbx_text, sprite_text, muti = MoveFiles(namecode, new_asset_list, "baldric")
                     if muti:
                         ws.cell(last_row, 6).value = "多贴图背包"
                     ws.cell(last_row, 10).value = png_text
@@ -211,6 +215,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = fbx_text.replace("FBX", "mat")
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = unity_prefab_path + "baldric/" + namecode + ".prefab"
                     last_row += 1
                     break
@@ -226,7 +231,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "shoes"
                     ws.cell(last_row, 6).value = "普通鞋子"
-                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "shoes")
+                    png_text, fbx_text,sprite_text,  muti = MoveFiles(namecode, new_asset_list, "shoes")
                     if muti:
                         ws.cell(last_row, 6).value = "多贴图鞋子"
                     ws.cell(last_row, 10).value = png_text
@@ -234,6 +239,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = fbx_text.replace("FBX", "mat")
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = unity_prefab_path + "shoes/" + namecode + ".prefab"
                     last_row += 1
                     break
@@ -242,7 +248,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "glasses"
                     ws.cell(last_row, 6).value = "普通眼镜"
-                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "glasses")
+                    png_text, fbx_text, sprite_text, muti = MoveFiles(namecode, new_asset_list, "glasses")
                     if muti:
                         ws.cell(last_row, 6).value = "多贴图眼镜"
                     ws.cell(last_row, 10).value = png_text
@@ -250,6 +256,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = fbx_text.replace("FBX", "mat")
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = unity_prefab_path + "glasses/" + namecode + ".prefab"
                     last_row += 1
                     break
@@ -258,7 +265,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "shirt"
                     ws.cell(last_row, 6).value = "普通上衣"
-                    png_text, fbx_text, muti = MoveFiles(namecode, new_asset_list, "shirt")
+                    png_text, fbx_text,sprite_text,  muti = MoveFiles(namecode, new_asset_list, "shirt")
                     if muti:
                         ws.cell(last_row, 6).value = "多贴图上衣"
                     ws.cell(last_row, 10).value = png_text
@@ -266,6 +273,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = fbx_text.replace("FBX", "mat")
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
+                    ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = unity_prefab_path + "shirt/" + namecode + ".prefab"
                     last_row += 1
                     break
@@ -350,24 +358,26 @@ def MoveFiles(namecode, new_asset_list, dress_type):
                     # copy file to new folder
                     shutil.copy2(asset, path_to_create)  # target filename is /dst/dir/file.ext
 
+            if not muti:
+                ##get png and fbx text
+                if asset.lower().endswith(".fbx"):
+                    fbx_count += 1
+                    text = path_to_create + "/" + os.path.basename(asset)
+                    fbx_text += "|-|" + text.replace(project_path, "")
+                elif asset.lower().endswith(".png"):
+                    png_count += 1
+                    text = path_to_create + "/" + os.path.basename(asset)
 
+                    png_text += "|-|" + text.replace(project_path, "")
 
-
-
-
-            if asset.lower().endswith(".fbx"):
-                fbx_count += 1
-                text = path_to_create + "/" + os.path.basename(asset)
-                fbx_text += "|-|" + text.replace(project_path, "")
-            elif asset.lower().endswith(".png"):
-                png_count += 1
-                text = path_to_create + "/" + os.path.basename(asset)
-                png_text += "|-|" + text.replace(project_path, "")
+                    if asset.__contains__("_0"):
+                        sprite_count += 1
+                        sprite_text += "|-|" + text.replace(project_path, "")
 
     fbx_text = str(fbx_count) + fbx_text
     png_text = str(png_count) + png_text
 
-    return png_text, fbx_text, muti
+    return png_text, fbx_text, sprite_text, muti
 
 
 # Start

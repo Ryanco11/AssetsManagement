@@ -369,10 +369,10 @@ def MoveFiles(namecode, new_asset_list, dress_type):
                 text = path_to_create + "/" + os.path.basename(asset)
                 png_text += "|-|" + text.replace(project_path, "")
 
-
-                sprite_count += 1
-                text = sprite_path + dress_type + "/" + os.path.basename(asset)
-                sprite_text += "|-|" + text
+                if not asset.__contains__("_mask") and not asset.__contains__("_H"):
+                    sprite_count += 1
+                    text = sprite_path + dress_type + "/" + os.path.basename(asset)
+                    sprite_text += "|-|" + text
 
                 # if not asset.__contains__("_0"):
                 #     sprite_count -= 1

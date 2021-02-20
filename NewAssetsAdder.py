@@ -134,7 +134,6 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 5).value = "pants"
                     ws.cell(last_row, 6).value = "普通裤子"
                     MoveFiles(namecode, new_asset_list, "pants")
-
                     last_row += 1
                     break
                 elif asset.__contains__(r'/T/'):

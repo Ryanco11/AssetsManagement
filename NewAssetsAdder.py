@@ -1,11 +1,12 @@
 import openpyxl
 import os
+import shutil
 from pathlib import Path
 
 excel_path = r'/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx'
 project_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/'
 artsrc_path = r'/Users/ryanco/Projects/avatar_art_resources/'
-
+asset_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art/model/coat/'
 fbx_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
 png_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
 
@@ -124,6 +125,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "suit"
                     ws.cell(last_row, 6).value = "普通套装"
+                    MoveFiles(namecode, new_asset_list, "suit")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/K/') or asset.__contains__(r'/HQ/'):
@@ -131,6 +133,8 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "pants"
                     ws.cell(last_row, 6).value = "普通裤子"
+                    MoveFiles(namecode, new_asset_list, "pants")
+
                     last_row += 1
                     break
                 elif asset.__contains__(r'/T/'):
@@ -138,6 +142,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "headwear"
                     ws.cell(last_row, 6).value = "普通头饰"
+                    MoveFiles(namecode, new_asset_list, "headwear")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/F/'):
@@ -145,6 +150,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "hair"
                     ws.cell(last_row, 6).value = "普通头发"
+                    MoveFiles(namecode, new_asset_list, "hair")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/M/'):
@@ -152,27 +158,30 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "hair"
                     ws.cell(last_row, 6).value = "帽子头发"
+                    MoveFiles(namecode, new_asset_list, "hair")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/QT/'):
                     print("write in bladic")
                     ws.cell(last_row, 4).value = namecode
-                    ws.cell(last_row, 5).value = "bladic"
+                    ws.cell(last_row, 5).value = "baldric"
                     ws.cell(last_row, 6).value = "普通背包"
+                    MoveFiles(namecode, new_asset_list, "baldric")
                     last_row += 1
                     break
-                elif asset.__contains__(r'/W/'):
-                    print("write in sock")
-                    ws.cell(last_row, 4).value = namecode
-                    ws.cell(last_row, 5).value = "sock"
-                    ws.cell(last_row, 6).value = "普通袜子"
-                    last_row += 1
-                    break
+                # elif asset.__contains__(r'/W/'):
+                #     print("write in sock")
+                #     ws.cell(last_row, 4).value = namecode
+                #     ws.cell(last_row, 5).value = "sock"
+                #     ws.cell(last_row, 6).value = "普通袜子"
+                #     last_row += 1
+                #     break
                 elif asset.__contains__(r'/X/'):
                     print("write in shoes")
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "shoes"
                     ws.cell(last_row, 6).value = "普通鞋子"
+                    MoveFiles(namecode, new_asset_list, "shoes")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/Y/'):
@@ -180,6 +189,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "glasses"
                     ws.cell(last_row, 6).value = "普通眼镜"
+                    MoveFiles(namecode, new_asset_list, "glasses")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/S/'):
@@ -187,11 +197,10 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 4).value = namecode
                     ws.cell(last_row, 5).value = "shirt"
                     ws.cell(last_row, 6).value = "普通上衣"
+                    MoveFiles(namecode, new_asset_list, "shirt")
                     last_row += 1
                     break
 
-                #move file
-                #write rest info
 
     wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
 
@@ -199,7 +208,27 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
 
 
 
-# def MoveFiles():
+def MoveFiles(namecode, new_asset_list, dress_type):
+    for asset in new_asset_list:
+        if asset.__contains__(namecode):
+            #create folder in unity model folder
+            path_to_create = asset_path + dress_type + "/" + namecode
+            if os.path.isdir(path_to_create):
+                print("Exists")
+            else:
+                try:
+                    os.mkdir(path_to_create)
+                except OSError:
+                    print("Creation of the directory %s failed" % path_to_create)
+                else:
+                    print("Successfully created the directory %s " % path_to_create)
+
+            #copy file to new folder
+            shutil.copy2(asset, path_to_create)  # target filename is /dst/dir/file.ext
+
+            # shutil.copy2('/src/dir/file.ext', '/dst/dir/newname.ext')  # complete target filename given
+
+
 #
 # def WritePathInfo():
 

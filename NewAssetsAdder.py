@@ -34,17 +34,17 @@ def AddShirt(namecode, dress_type, sub_type):
             if file.lower().__contains__(namecode.lower()) and os.path.join(r, file).lower().__contains__("update") and file.lower().endswith(".png"):
                 asset_list.append(os.path.join(r, file).replace(project_path, ""))
 
-    for i in asset_list:
-        print(i)
+    return asset_list
 
 def GetLastRow():
     # last_row = 0
     for row in range(2, ws.max_row):
         # print(ws.cell(row, 1).value)
-        if(ws.cell(row, 1).value is None):
+        if(ws.cell(row, 4).value is None):
             last_row = row;
-            # print(last_row)
+            print(last_row)
             break
+
     return last_row
 
 
@@ -56,15 +56,17 @@ def GetLastRow():
 last_row = GetLastRow()
 
 #loop from last to upper
-for row in last_row:
+for row in range(1, last_row):
     cur_row = last_row - row
     if ws.cell(cur_row, 7).value is None:
         ###for every new asset
 
         #get source files
-        AddShirt(namecode, dress_type, sub_type)
+        asset_list = AddShirt(namecode, dress_type, sub_type)
 
-        #
+        #copy asset
+        for i in asset_list:
+            print(i)
 
     #value is not null, end operation
     else:

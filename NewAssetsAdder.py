@@ -10,7 +10,7 @@ month = '{:02d}'.format(now.month)
 day = '{:02d}'.format(now.day)
 hour = '{:02d}'.format(now.hour)
 minute = '{:02d}'.format(now.minute)
-day_month_year = '{}-{}-{}'.format(year, month, day)
+day_month_year = '{}-{}-{} {}:{}'.format(year, month, day, hour, minute)
 
 print('day_month_year: ' + day_month_year)
 

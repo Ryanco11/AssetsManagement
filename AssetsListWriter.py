@@ -84,7 +84,7 @@ def FindAssets(count, namecode, asset_type, col, lost_text):
                     asset_list.append(os.path.join(r, file).replace(project_path, ""))
 
     if len(asset_list) == 0:
-        ws.cell(2 + count, col).value = lost_text + "缺失（旧资源）"
+        ws.cell(2 + count, col).value = lost_text + "缺失"
         ws.cell(2 + count, col).fill = pinkFill
     else:
         # if len(asset_list) > 1:
@@ -104,7 +104,7 @@ def FindSprite(count, namecode, asset_type, col, lost_text):
                 asset_list.append(os.path.join(r, file).replace(project_path, ""))
 
     if len(asset_list) == 0:
-        ws.cell(2 + count, col).value = lost_text + "缺失（旧资源）"
+        ws.cell(2 + count, col).value = lost_text + "缺失"
         # ws.cell(2 + count, col).fill = redFill
     else:
         # if len(asset_list) > 1:

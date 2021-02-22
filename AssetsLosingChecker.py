@@ -24,7 +24,7 @@ def AccessAssetPath(last_row, ws):
             if file.lower().endswith(".meta"):
                 continue
 
-            print(str(i) + ": " + file)
+            # print(str(i) + ": " + file)
             i += 1
 
             #每一个文件检查一遍ws
@@ -37,7 +37,8 @@ def AccessAssetPath(last_row, ws):
 
                 for col in file_col_list:
                     # print("asset " + str(col) + ": " + ws.cell(row, col).value)
-                    ws.cell(row, col).value = CheckLost(ws.cell(row, col).value, file)
+                    cell_value = ws.cell(row, col).value
+                    ws.cell(row, col).value = CheckLost(cell_value, file)
 
     # walk through ws, check any lost
     for row in range(2, last_row):  # start at 2 , cus first row is not the actual info
@@ -47,14 +48,15 @@ def AccessAssetPath(last_row, ws):
         ### Assets
         file_col_list = [7, 10, 12, 14, 16]
 
-        for col in file_col_list:
-            print("loas asset " + str(col) + ": " + ws.cell(row, col).value)
+        # for col in file_col_list:
+            # print("loas asset " + str(col) + ": " + ws.cell(row, col).value)
 
 
 def CheckLost(cell_value, file):
+    new_cell_value = ""
 
-    # if cell_value.__contains__("缺失"):
-    #     return
+    if cell_value.__contains__("缺失"):
+        return cell_value
 
     cell_path_list = cell_value.split('|-|')
 
@@ -66,14 +68,25 @@ def CheckLost(cell_value, file):
 
         if len(path) < 5:
             # 绕过序号
-            cell_path_list.remove(path)
             continue
 
         if file.__contains__(path):
-                    cell_path_list.remove(path)
+            cell_path_list.remove(path)
+            cell_path_list[0] = str(int(cell_path_list[0]) - 1)
 
-    # print("cell after remove :" + cell_value)
-    return cell_value
+    print(len(cell_path_list))
+
+    new_cell_value += cell_path_list[0]
+
+    for path in cell_path_list:
+        if len(path) < 5:
+            # 绕过序号
+            continue
+        new_cell_value += "|-|"
+        new_cell_value += path
+
+    print(new_cell_value)
+    return str(new_cell_value)
 
 
 

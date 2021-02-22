@@ -3,8 +3,10 @@ import os
 from pathlib import Path
 from openpyxl.styles import Color, PatternFill, Font, Border
 
-redFill = PatternFill(start_color='FF5645',end_color='FF5645',fill_type='solid')
-blueFill = PatternFill(start_color='2FA0FF',end_color='2FA0FF',fill_type='solid')
+# redFill = PatternFill(start_color='FF5645',end_color='FF5645',fill_type='solid')
+# blueFill = PatternFill(start_color='2FA0FF',end_color='2FA0FF',fill_type='solid')
+
+pinkFill = PatternFill(start_color='FFA40D',end_color='FFA40D',fill_type='solid')
 
 excel_path = r'/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx'
 project_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/'
@@ -83,11 +85,11 @@ def FindAssets(count, namecode, asset_type, col, lost_text):
 
     if len(asset_list) == 0:
         ws.cell(2 + count, col).value = lost_text + "缺失"
-        ws.cell(2 + count, col).fill = redFill
+        ws.cell(2 + count, col).fill = pinkFill
     else:
-        if len(asset_list) > 1:
+        # if len(asset_list) > 1:
             # print()
-            ws.cell(2 + count, col).fill = blueFill
+            # ws.cell(2 + count, col).fill = blueFill
         ws.cell(2 + count, col).value = str(len(asset_list))
         for path in asset_list:
             ws.cell(2 + count, col).value += "|-|"

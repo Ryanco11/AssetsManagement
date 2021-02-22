@@ -24,15 +24,12 @@ def AccessAssetPath(last_row, ws):
             if file.lower().endswith(".meta"):
                 continue
 
-            # print(str(i) + ": " + file)
+            print(str(i) + ": " + file)
             i += 1
 
             #每一个文件检查一遍ws
             for row in range(2, last_row):   # start at 2 , cus first row is not the actual info
-                # namecode
-                # print("this is asset: " +  ws.cell(row, 4).value)
 
-                ### Assets
                 file_col_list = [7, 10, 12, 14, 16]
 
                 for col in file_col_list:
@@ -48,13 +45,13 @@ def AccessAssetPath(last_row, ws):
         ### Assets
         file_col_list = [7, 10, 12, 14, 16]
 
-        # for col in file_col_list:
-            # print("loas asset " + str(col) + ": " + ws.cell(row, col).value)
+        for col in file_col_list:
+            print("loas asset " + str(col) + ": " + ws.cell(row, col).value)
 
 
 def CheckLost(cell_value, file):
     new_cell_value = ""
-    
+
 #跳过缺失文件
     if cell_value.__contains__("缺失"):
         return cell_value
@@ -77,7 +74,7 @@ def CheckLost(cell_value, file):
             continue
         new_cell_value += "|-|"
         new_cell_value += path
-    print(new_cell_value)
+    # print(new_cell_value)
     return str(new_cell_value)
 
 

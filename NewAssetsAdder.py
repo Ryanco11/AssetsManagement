@@ -147,7 +147,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = unity_prefab_path + "suit/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "suit/" + namecode + ".prefab"
                     last_row += 1
                     break
                 elif asset.__contains__(r'/K/') or asset.__contains__(r'/HQ/'):
@@ -165,7 +165,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = unity_prefab_path + "pants/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "pants/" + namecode + ".prefab"
                     last_row += 1
                     break
                 elif asset.__contains__(r'/T/'):
@@ -183,7 +183,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = unity_prefab_path + "headwear/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "headwear/" + namecode + ".prefab"
                     last_row += 1
                     break
                 elif asset.__contains__(r'/F/'):
@@ -201,7 +201,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = unity_prefab_path + "hair/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "hair/" + namecode + ".prefab"
                     last_row += 1
                     break
                 # elif asset.__contains__(r'/M/'):
@@ -233,7 +233,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = unity_prefab_path + "baldric/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "baldric/" + namecode + ".prefab"
                     last_row += 1
                     break
                 # elif asset.__contains__(r'/W/'):
@@ -258,7 +258,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = unity_prefab_path + "shoes/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "shoes/" + namecode + ".prefab"
                     last_row += 1
                     break
                 elif asset.__contains__(r'/Y/'):
@@ -276,7 +276,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = unity_prefab_path + "glasses/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "glasses/" + namecode + ".prefab"
                     last_row += 1
                     break
                 elif asset.__contains__(r'/S/'):
@@ -294,7 +294,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = unity_prefab_path + "shirt/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "shirt/" + namecode + ".prefab"
                     last_row += 1
                     break
 

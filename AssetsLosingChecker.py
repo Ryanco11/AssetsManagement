@@ -5,38 +5,36 @@ project_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject
 
 #get excel
 wb = openpyxl.load_workbook(excel_path)
-ws = wb['AssetsInfo - Assets_Art_model_c']
+lws = wb['Lagecy_Assets_List']
 
 def AccessAssetPath(last_row):
     for row in range(2, last_row):   # start at 2 , cus first row is not the actual info
         # namecode
-        print("this is asset: " +  ws.cell(row, 2).value)
+        print("this is asset: " +  lws.cell(row, 2).value)
 
         ### Assets
-        file_col_list = [7, 9, 10, 12, 14, 16]
+        file_col_list = [7, 10, 12, 14, 16]
 
         for col in file_col_list:
-            print("asset " + str(col) + ": " + ws.cell(row, col).value)
+            print("asset " + str(col) + ": " + lws.cell(row, col).value)
 
-        # Prefab
-        # print("pfb: " + ws.cell(row, 5).value)
-        # # AssetsFolder
-        # print("folder: " + ws.cell(row, 7).value)
+        # #Prefab
+        # print("pfb: " + ws.cell(row, 7).value)
         # # Tex
-        # print("tex: " + ws.cell(row, 8).value)
+        # print("tex: " + ws.cell(row, 10).value)
         # # Mesh
-        # print("mash: " + ws.cell(row, 10).value)
+        # print("mash: " + ws.cell(row, 12).value)
         # # Mat
-        # print("mat: " + ws.cell(row, 12).value)
+        # print("mat: " + ws.cell(row, 14).value)
         # # Sprite
-        # print("sprs: " + ws.cell(row, 14).value)
+        # print("sprs: " + ws.cell(row, 16).value)
 
-def AccessAssetSpecificSetting(last_row):
+def AccessAssetSpecificSetting(last_row, ws):
     for row in range(2, last_row):
         # namecode
         print("this is asset: " + ws.cell(row, 2).value)
 
-def GetLastRow():
+def GetLastRow(ws):
     for row in range(1, ws.max_row):
         if (ws.cell(row, 4).value is None):
             last_row = row;  # this last_row value is actual plus one by actual last row in excel, cus py access col by minis one
@@ -48,12 +46,18 @@ def GetLastRow():
 
 
 
-last_row = GetLastRow()
-
-AccessAssetPath(last_row)
 
 
-ws.cell(3 , 3).value = 222222
+
+###Start
+#1. Check Lagecy Assets
+last_row = GetLastRow(lws)
+# AccessAssetPath(last_row, lws)
+
+
+#2. Cehck New Added Asset Since 2021-02-21
+
+
 
 
 

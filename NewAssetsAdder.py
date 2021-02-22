@@ -27,7 +27,7 @@ sprite_path = r'Assets/Art/BundleResources/Sprites/'
 
 #get excel
 wb = openpyxl.load_workbook(excel_path)
-ws = wb['NewAssets - Assets_Art_model_co']
+ws = wb['New_Added_Assets_List']
 
 
 def GetAssetList():

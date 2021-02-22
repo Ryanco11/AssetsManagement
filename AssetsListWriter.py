@@ -14,7 +14,7 @@ sprite_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/
 
 #get excel
 wb = openpyxl.load_workbook(excel_path)
-ws = wb['AssetsInfo - Assets_Art_model_c']
+ws = wb['Lagecy_Assets_List']
 
 def WriteAssetInfo():
     # r=root, d=directories, f = files

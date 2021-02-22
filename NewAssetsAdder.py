@@ -385,8 +385,12 @@ def MoveFiles(namecode, new_asset_list, dress_type):
                 fbx_text += "|-|" + text.replace(project_path, "")
             elif asset.lower().endswith(".png"):
                 png_count += 1
-                text = path_to_create + "/" + os.path.basename(asset)
-                png_text += "|-|" + text.replace(project_path, "")
+                if muti and asset.__contains__("_0"):
+                    text = prefab_path + dress_type + "/" + namecode + "/texture" + "/" + os.path.basename(asset)
+                    png_text += "|-|" + text.replace(project_path, "")
+                else:
+                    text = path_to_create + "/" + os.path.basename(asset)
+                    png_text += "|-|" + text.replace(project_path, "")
 
                 if not asset.__contains__("_mask") and not asset.__contains__("_H"):
                     sprite_count += 1

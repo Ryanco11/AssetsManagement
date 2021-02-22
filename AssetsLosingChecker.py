@@ -6,6 +6,7 @@ project_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject
 #get excel
 wb = openpyxl.load_workbook(excel_path)
 lws = wb['Lagecy_Assets_List']
+nws = wb['New_Added_Assets_List']
 
 def AccessAssetPath(last_row):
     for row in range(2, last_row):   # start at 2 , cus first row is not the actual info

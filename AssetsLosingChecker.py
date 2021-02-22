@@ -1,39 +1,91 @@
 import openpyxl
+import os
 
 excel_path = r'/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx'
-project_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/'
+project_art_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art'
+project_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject'
 
 #get excel
 wb = openpyxl.load_workbook(excel_path)
 lws = wb['Lagecy_Assets_List']
 nws = wb['New_Added_Assets_List']
 
+
 def AccessAssetPath(last_row, ws):
-    for row in range(2, last_row):   # start at 2 , cus first row is not the actual info
+
+    # walk through whole project
+    i = 1
+    for r, d, f in os.walk(project_art_path):
+        for file in f:
+
+            #get abs path
+            file = os.path.join(r, file)
+
+            if file.lower().endswith(".meta"):
+                continue
+
+            print(str(i) + ": " + file)
+            i += 1
+
+            #每一个文件检查一遍ws
+            for row in range(2, last_row):   # start at 2 , cus first row is not the actual info
+                # namecode
+                # print("this is asset: " +  ws.cell(row, 4).value)
+
+                ### Assets
+                file_col_list = [7, 10, 12, 14, 16]
+
+                for col in file_col_list:
+                    # print("asset " + str(col) + ": " + ws.cell(row, col).value)
+                    ws.cell(row, col).value = CheckLost(ws.cell(row, col).value, file)
+
+    # walk through ws, check any lost
+    for row in range(2, last_row):  # start at 2 , cus first row is not the actual info
         # namecode
-        print("this is asset: " +  ws.cell(row, 4).value)
+        # print("this is asset: " +  ws.cell(row, 4).value)
 
         ### Assets
         file_col_list = [7, 10, 12, 14, 16]
 
         for col in file_col_list:
-            print("asset " + str(col) + ": " + ws.cell(row, col).value)
+            print("loas asset " + str(col) + ": " + ws.cell(row, col).value)
 
-        # # #Prefab
-        # print("pfb: " + ws.cell(row, 7).value)
-        # # Tex
-        # print("tex: " + ws.cell(row, 10).value)
-        # # Mesh
-        # print("mash: " + ws.cell(row, 12).value)
-        # # Mat
-        # print("mat: " + ws.cell(row, 14).value)
-        # # Sprite
-        # print("sprs: " + ws.cell(row, 16).value)
+
+def CheckLost(cell_value, file):
+
+    # if cell_value.__contains__("缺失"):
+    #     return
+
+    cell_path_list = cell_value.split('|-|')
+
+    # for path in cell_path_list:
+        # print(path)
+
+
+    for path in cell_path_list:
+
+        if len(path) < 5:
+            # 绕过序号
+            cell_path_list.remove(path)
+            continue
+
+        if file.__contains__(path):
+                    cell_path_list.remove(path)
+
+    # print("cell after remove :" + cell_value)
+    return cell_value
+
+
+
+
+
+
 
 def AccessAssetSpecificSetting(last_row, ws):
     for row in range(2, last_row):
         # namecode
         print("this is asset: " + ws.cell(row, 2).value)
+
 
 def GetLastRow(ws):
     for row in range(1, ws.max_row + 100000):
@@ -54,6 +106,7 @@ def GetLastRow(ws):
 last_row = GetLastRow(lws)
 AccessAssetPath(last_row, lws)
 
+print("done")
 
 #2. Cehck New Added Asset Since 2021-02-21
 

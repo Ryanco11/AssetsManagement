@@ -45,7 +45,8 @@ def AccessAssetPath(last_row, ws):
         file_col_list = [7, 10, 12, 14, 16]
 
         for col in file_col_list:
-            print("loas asset " + str(col) + ": " + ws.cell(row, col).value)
+            if not ws.cell(row, col).value == "0":
+                print("loas asset " + str(col) + ": " + ws.cell(row, col).value)
 
 
 def CheckLost(cell_value, file):

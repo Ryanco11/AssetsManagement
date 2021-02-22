@@ -1,0 +1,8 @@
+1.AssetsListWriter :
+    Read current unity project , write all suits asset info into excel
+
+2.NewAssetsAdder :
+    Compare new_assets_list with assets in art_resources, add new assets into unity, and write new assets info into new_assets_list
+
+3.AssetsLosingChecker :
+    Read current unity project, arcding to lagecy_assets_list & new_assets_list, print all lost assets

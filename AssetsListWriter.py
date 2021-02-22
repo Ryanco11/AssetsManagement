@@ -34,14 +34,11 @@ def WriteAssetInfo():
                 dress_type = os.path.join(r, file).split('/')[-2]
                 ws.cell(2 + count, 5).value = dress_type
 
-
-
                 ### Prafab Path
                 ws.cell(2 + count, 7).value = "1|-|" + os.path.join(r, file).replace(project_path, "")
 
                 ### Assets Folder Path
                 ws.cell(2 + count, 9).value = ""
-
 
                 ## Texture Path
                 FindAssets(count, namecode, "png", 10, "贴图")

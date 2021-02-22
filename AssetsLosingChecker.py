@@ -21,6 +21,7 @@ def AccessAssetPath(last_row, ws):
             #get abs path
             file = os.path.join(r, file)
 
+            #ingore .meta
             if file.lower().endswith(".meta"):
                 continue
 
@@ -29,9 +30,7 @@ def AccessAssetPath(last_row, ws):
 
             #每一个文件检查一遍ws
             for row in range(2, last_row):   # start at 2 , cus first row is not the actual info
-
                 file_col_list = [7, 10, 12, 14, 16]
-
                 for col in file_col_list:
                     # print("asset " + str(col) + ": " + ws.cell(row, col).value)
                     cell_value = ws.cell(row, col).value

@@ -54,37 +54,29 @@ def AccessAssetPath(last_row, ws):
 
 def CheckLost(cell_value, file):
     new_cell_value = ""
-
+    
+#跳过缺失文件
     if cell_value.__contains__("缺失"):
         return cell_value
 
+#剔除存在的资源
     cell_path_list = cell_value.split('|-|')
-
-    # for path in cell_path_list:
-        # print(path)
-
-
     for path in cell_path_list:
-
         if len(path) < 5:
             # 绕过序号
             continue
-
         if file.__contains__(path):
             cell_path_list.remove(path)
             cell_path_list[0] = str(int(cell_path_list[0]) - 1)
 
-    print(len(cell_path_list))
-
+#回填剩下的内容
     new_cell_value += cell_path_list[0]
-
     for path in cell_path_list:
         if len(path) < 5:
             # 绕过序号
             continue
         new_cell_value += "|-|"
         new_cell_value += path
-
     print(new_cell_value)
     return str(new_cell_value)
 

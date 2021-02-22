@@ -78,11 +78,6 @@ def CheckLost(cell_value, file):
     return str(new_cell_value)
 
 
-
-
-
-
-
 def AccessAssetSpecificSetting(last_row, ws):
     for row in range(2, last_row):
         # namecode
@@ -110,7 +105,6 @@ AccessAssetPath(last_row, lws)
 print("以上为「老」资源丢失情况")
 
 #2. Cehck New Added Asset Since 2021-02-21
-
 last_row = GetLastRow(nws)
 AccessAssetPath(last_row, nws)
 print("以上为「新」资源丢失情况")

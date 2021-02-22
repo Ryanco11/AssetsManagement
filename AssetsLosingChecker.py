@@ -25,7 +25,7 @@ def AccessAssetPath(last_row, ws):
             if file.lower().endswith(".meta"):
                 continue
 
-            print(str(i) + ": " + file)
+            # print(str(i) + ": " + file)
             i += 1
 
             #每一个文件检查一遍ws
@@ -46,7 +46,7 @@ def AccessAssetPath(last_row, ws):
 
         for col in file_col_list:
             if not ws.cell(row, col).value == "0" and not ws.cell(row, col).value.__contains__("旧资源"):
-                print("loas asset " +  ": " + ws.cell(row, col).value)
+                print("资源丢失: " + ws.cell(row, col).value)
 
 
 def CheckLost(cell_value, file):
@@ -107,12 +107,13 @@ def GetLastRow(ws):
 #1. Check Lagecy Assets
 last_row = GetLastRow(lws)
 AccessAssetPath(last_row, lws)
-
-print("done")
+print("以上为「老」资源丢失情况")
 
 #2. Cehck New Added Asset Since 2021-02-21
 
-
+last_row = GetLastRow(nws)
+AccessAssetPath(last_row, nws)
+print("以上为「新」资源丢失情况")
 
 
 

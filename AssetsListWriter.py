@@ -65,11 +65,17 @@ def WriteAssetInfo():
 
 def FindAssets(count, namecode, asset_type, col, lost_text):
     asset_list = []
-
-    for r, d, f in os.walk(assets_path):
-        for file in f:
-            if file.__contains__(namecode) and file.lower().endswith("." + asset_type):
-                asset_list.append(os.path.join(r, file).replace(project_path, ""))
+    if asset_type == "png":
+        #为多贴图资源寻找 png
+        for r, d, f in os.walk(project_path):
+            for file in f:
+                if file.__contains__(namecode) and file.lower().endswith("." + asset_type):
+                    asset_list.append(os.path.join(r, file).replace(project_path, ""))
+    else:
+        for r, d, f in os.walk(assets_path):
+            for file in f:
+                if file.__contains__(namecode) and file.lower().endswith("." + asset_type):
+                    asset_list.append(os.path.join(r, file).replace(project_path, ""))
 
     if len(asset_list) == 0:
         ws.cell(2 + count, col).value = lost_text + "缺失"

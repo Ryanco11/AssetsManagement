@@ -37,7 +37,7 @@ def WriteAssetInfo():
 
 
                 ### Prafab Path
-                ws.cell(2 + count, 7).value = os.path.join(r, file).replace(project_path, "")
+                ws.cell(2 + count, 7).value = "1|-|" + os.path.join(r, file).replace(project_path, "")
 
                 ### Assets Folder Path
                 ws.cell(2 + count, 9).value = ""

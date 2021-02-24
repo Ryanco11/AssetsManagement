@@ -1,0 +1,16 @@
+{
+  "AddedTime": null,
+  "NameCode" : "TA0005Z",
+  "AssetType": "headwear",
+  "SubType": "普通头饰",
+  "Prefabs": "1|-|Assets/Art/BundleResources/Dress/headwear/TA0005Z.prefab",
+  "PrefabSS": null,
+  "Textures": "1|-|Assets/Art/model/coat/headwear/TA0005Z/TA0005Z.png",
+  "TextureSS": null,
+  "Meshs": "1|-|Assets/Art/model/coat/headwear/TA0005Z/TA0005Z.FBX",
+  "MeshSS": null,
+  "Materials": "1|-|Assets/Art/model/coat/headwear/TA0005Z/TA0005Z.mat",
+  "MaterialSS": null,
+  "Sprites": "1|-|Assets/Art/BundleResources/Sprites/headwear/TA0005Z.png",
+  "SpriteSS": null
+}

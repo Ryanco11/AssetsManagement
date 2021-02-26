@@ -25,6 +25,8 @@ fbx_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
 png_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
 sprite_path = r'Assets/Art/BundleResources/Sprites/'
 
+asset_sock_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art/BundleResources/Textures/'
+
 #get excel
 wb = openpyxl.load_workbook(excel_path)
 ws = wb['New_Added_Assets_List']
@@ -132,7 +134,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
             if asset.__contains__(namecode):
                 #for specfic file path with its namecode
                 #write type
-                if asset.__contains__(r'/A/') or asset.__contains__(r'/FQ/'):
+                if asset.__contains__(r'/A/') or asset.__contains__(r'/Q_长/'):
                     print("write in suit")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -148,9 +150,10 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "suit/" + namecode + ".prefab"
+                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
                     last_row += 1
                     break
-                elif asset.__contains__(r'/K/') or asset.__contains__(r'/HQ/'):
+                elif asset.__contains__(r'/K/') or asset.__contains__(r'/Q_短/'):
                     print("write in pants")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -166,6 +169,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "pants/" + namecode + ".prefab"
+                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/T/'):
@@ -184,6 +188,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "headwear/" + namecode + ".prefab"
+                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/F/'):
@@ -202,6 +207,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "hair/" + namecode + ".prefab"
+                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
                     last_row += 1
                     break
                 # elif asset.__contains__(r'/M/'):
@@ -234,15 +240,24 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "baldric/" + namecode + ".prefab"
+                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
                     last_row += 1
                     break
-                # elif asset.__contains__(r'/W/'):
-                #     print("write in sock")
-                #     ws.cell(last_row, 4).value = namecode
-                #     ws.cell(last_row, 5).value = "sock"
-                #     ws.cell(last_row, 6).value = "普通袜子"
-                #     last_row += 1
-                #     break
+                elif asset.__contains__(r'/W/'):
+                    print("write in sock")
+                    ws.cell(last_row, 3).value = day_month_year
+                    ws.cell(last_row, 4).value = namecode
+                    ws.cell(last_row, 5).value = "socks"
+                    ws.cell(last_row, 6).value = "普通袜子"
+                    png_text, fbx_text, sprite_text = MovePng(namecode, new_asset_list, "socks")
+                    ws.cell(last_row, 10).value = png_text
+                    ws.cell(last_row, 12).value = "0"
+                    ws.cell(last_row, 14).value = "0"
+                    ws.cell(last_row, 16).value = sprite_text
+                    ws.cell(last_row, 7).value = "0"
+                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
+                    last_row += 1
+                    break
                 elif asset.__contains__(r'/X/'):
                     print("write in shoes")
                     ws.cell(last_row, 3).value = day_month_year
@@ -259,6 +274,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "shoes/" + namecode + ".prefab"
+                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/Y/'):
@@ -277,6 +293,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "glasses/" + namecode + ".prefab"
+                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
                     last_row += 1
                     break
                 elif asset.__contains__(r'/S/'):
@@ -295,6 +312,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "shirt/" + namecode + ".prefab"
+                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
                     last_row += 1
                     break
 
@@ -302,6 +320,41 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
     wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
 
 # def WriteSubType():
+
+def MovePng(namecode, new_asset_list, dress_type):
+    fbx_text = ""
+    png_text = ""
+    sprite_text = ""
+    png_count = 0
+    sprite_count = 0
+
+    for asset in new_asset_list:
+        if asset.__contains__(namecode) and asset.__contains__("_01"):
+            muti = True
+
+    for asset in new_asset_list:
+        if asset.__contains__(namecode):
+            ###normal asset
+            path_to_create = asset_sock_path + dress_type
+
+            # copy file to new folder
+            shutil.copy2(asset, path_to_create)  # target filename is /dst/dir/file.ext
+
+            if asset.lower().endswith(".png"):
+                png_count += 1
+                text = path_to_create + "/" + os.path.basename(asset)
+                png_text += "|-|" + text.replace(project_path, "")
+
+                if not asset.__contains__("_mask") and not asset.__contains__("_H"):
+                    sprite_count += 1
+                    text = sprite_path + dress_type + "/" + os.path.basename(asset)
+                    sprite_text += "|-|" + text
+
+    # fbx_text = str(fbx_count) + fbx_text
+    png_text = str(png_count) + png_text
+    sprite_text = str(sprite_count) + sprite_text
+    print("sprite_text:" + sprite_text)
+    return png_text, fbx_text, sprite_text
 
 
 

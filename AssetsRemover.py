@@ -25,25 +25,33 @@ def CheckAssetToRemove(nws):
     #loop whole excel
     for row in range(2, last_row):  # start at 2 , cus first row is not the actual info
         file_col_list = [7, 10, 12, 14, 16]
-        if nws.cell(row, 4).value == "":
+        print(nws.cell(row, 4).value)
+        if nws.cell(row, 4).value == None:
+            print("Empty : " + str(row))
             for col in file_col_list:
-                if not nws.cell(row, col).value == "0" and not nws.cell(row, col).value.__contains__("旧资源"):
+                if not nws.cell(row, col).value == "0" and not str(nws.cell(row, col).value).__contains__("旧资源"):
                     #detele file in unity
                     DeleteCell(nws.cell(row, col).value)
 
             #detele whole row
+            nws.delete_rows(row)
+            wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
 
 def DeleteCell(cell_value):
-    cell_path_list = cell_value.split('|-|')
+    cell_path_list = str(cell_value).split('|-|')
     for path in cell_path_list:
         if len(path) < 5:
             # 绕过序号
             continue
+
         #delete every file
-        
+        delete_file_path = project_path + path
+        os.remove(delete_file_path)
+        print("Delete : " + delete_file_path)
+
 
 
 
 
 last_row = GetLastRow(nws)
-CheckAssetToRemove()
+CheckAssetToRemove(nws)

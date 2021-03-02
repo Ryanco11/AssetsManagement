@@ -78,10 +78,10 @@ def CheckLost(cell_value, file):
     return str(new_cell_value)
 
 
-def AccessAssetSpecificSetting(last_row, ws):
-    for row in range(2, last_row):
-        # namecode
-        print("this is asset: " + ws.cell(row, 2).value)
+# def AccessAssetSpecificSetting(last_row, ws):
+#     for row in range(2, last_row):
+#         # namecode
+#         print("this is asset: " + ws.cell(row, 2).value)
 
 
 def GetLastRow(ws):

@@ -1,9 +1,9 @@
 import openpyxl
 import os
 
-excel_path = r'/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx'
-project_art_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art'
-project_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject'
+excel_path = r'C:\AssetManagement\AssetsManagement\服饰元表Excel.xlsx'
+project_art_path = r'Z:\Users\ryanco\Projects\AndoidProject\wonder_party\avatarProject\Assets\Art'
+project_path = r'Z:\Users\ryanco\Projects\AndoidProject\wonder_party\avatarProject'
 
 #get excel
 wb = openpyxl.load_workbook(excel_path)
@@ -62,7 +62,7 @@ def CheckLost(cell_value, file):
         if len(path) < 5:
             # 绕过序号
             continue
-        if file.__contains__(path):
+        if file.__contains__(path.replace('/', '\\')):
             cell_path_list.remove(path)
             cell_path_list[0] = str(int(cell_path_list[0]) - 1)
 
@@ -100,9 +100,9 @@ def GetLastRow(ws):
 
 ###Start
 #1. Check Lagecy Assets
-# last_row = GetLastRow(lws)
-# AccessAssetPath(last_row, lws)
-# print("以上为「老」资源丢失情况")
+last_row = GetLastRow(lws)
+AccessAssetPath(last_row, lws)
+print("以上为「老」资源丢失情况")
 
 #2. Cehck New Added Asset Since 2021-02-21
 last_row = GetLastRow(nws)

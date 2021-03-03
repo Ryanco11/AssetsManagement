@@ -33,7 +33,7 @@ print('day_month_year: ' + day_month_year)
 
 excel_path = avatar_root_path + r'/Assets/Editor/AssetsManagement/SuitExcel/服饰元表.xlsx'
 project_path = avatar_root_path + r'/'
-artsrc_path = avatar_root_path + r'/'
+artsrc_path = art_root_path + r'/'
 
 unity_prefab_path = r'Assets/Art/BundleResources/Dress/'
 unity_asset_path = r'Assets/Art/model/coat/'

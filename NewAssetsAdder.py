@@ -74,15 +74,11 @@ def GetAssetList():
     return fbx_list, png_list
 
 def GetLastRow():
-    # last_row = 0
-    for row in range(2, ws.max_row):
-        # print(ws.cell(row, 1).value)
-        if(ws.cell(row, 4).value is None):
-            last_row = row;
-            print("last_row: " + str(last_row))
-            break
-
-    return last_row
+    for row in range(1, ws.max_row + 100000):
+        if (ws.cell(row, 4).value is None):
+            last_row = row;  # this last_row value is actual plus one by actual last row in excel, cus py access col by minis one
+            print("last row is : " + str(last_row))
+            return last_row
 
 
 def GetNewAssetInfo():

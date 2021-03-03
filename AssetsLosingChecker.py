@@ -5,13 +5,13 @@ import os
 ##############################使用前请替换「unity工程」根目录路径######################################
 ##################################################################################################
 #unity 工程项目根目录
-avatar_root_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject'
+avatar_root_path = r'Z:\Users\ryanco\Projects\AndoidProject\wonder_party\avatarProject'
 ##################################################################################################
 ##################################################################################################
 ##################################################################################################
 
-excel_path = avatar_root_path + r'/Assets/Editor/AssetsManagement/SuitExcel/服饰元表.xlsx'
-project_art_path = avatar_root_path + r'/Assets/Art'
+excel_path = avatar_root_path + r'\Assets\Editor\AssetsManagement\SuitExcel\服饰元表.xlsx'
+project_art_path = avatar_root_path + r'\Assets\Art'
 project_path = avatar_root_path
 
 #get excel
@@ -71,7 +71,7 @@ def CheckLost(cell_value, file):
         if len(path) < 5:
             # 绕过序号
             continue
-        if file.__contains__(path):
+        if file.__contains__(path.replace('/', '\\')):
             cell_path_list.remove(path)
             cell_path_list[0] = str(int(cell_path_list[0]) - 1)
 

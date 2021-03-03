@@ -1,8 +1,22 @@
-1.AssetsListWriter :
-    Read current unity project , write all suits asset info into excel
+0.AssetsListWriter :
+    Read current unity project , write all suits asset info into excel.
+    Not for regular usage.
+
+##############################################################################
+
+1.AssetsLosingChecker :
+    - Function Description: Read current unity project, according to [lagecy_assets_list] & [new_assets_list], print all lost assets.
+    - USE : 1.Set "avatar_root_path" in the head of the script.
+            2.Run Script.
 
 2.NewAssetsAdder :
-    Compare new_assets_list with assets in art_resources, add new assets into unity, and write new assets info into new_assets_list
+    - Function Description: Compare [new_assets_list] with assets in art_resources, add new assets into unity, and write new assets info into [new_assets_list].
+    - USE : 1.Use [Unity_Project_Root_Path] set "avatar_root_path"'s value in the head of the script.
+            2.Use [Art_Resource_Root_Path] set "art_root_path" in the head of the script.
+            3.Run Script.
 
-3.AssetsLosingChecker :
-    Read current unity project, arcding to lagecy_assets_list & new_assets_list, print all lost assets
+3.AssetsRemover :
+    - Function Description: Detele target assets file in Unity Project, and remove related info in Excel.
+    - USE : 1.Use [Unity_Project_Root_Path] set "avatar_root_path"'s value in the head of the script.
+            2.Delete target asset's namecode in Excel, save Excel file.
+            2.Run Script.

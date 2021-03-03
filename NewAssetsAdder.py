@@ -73,16 +73,22 @@ def GetAssetList():
 
     return fbx_list, png_list
 
-def GetLastRow():
-    # last_row = 0
-    for row in range(2, ws.max_row):
-        # print(ws.cell(row, 1).value)
-        if(ws.cell(row, 4).value is None):
-            last_row = row;
-            print("last_row: " + str(last_row))
-            break
+# def GetLastRow():
+#     # last_row = 0
+#     for row in range(2, ws.max_row):
+#         print(ws.cell(row, 4).value)
+#         if(ws.cell(row, 4).value is None):
+#             last_row = row;
+#             print("last_row: " + str(last_row))
+#             break
+#     return last_row
 
-    return last_row
+def GetLastRow():
+    for row in range(1, ws.max_row + 100000):
+        if (ws.cell(row, 4).value is None):
+            last_row = row;  # this last_row value is actual plus one by actual last row in excel, cus py access col by minis one
+            print("last row is : " + str(last_row))
+            return last_row
 
 
 def GetNewAssetInfo():
@@ -171,7 +177,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "suit/" + namecode + ".prefab"
-                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
+                    wb.save(excel_path)
                     last_row += 1
                     break
                 elif asset.__contains__(r'/K/') or asset.__contains__(r'/Q_短/'):
@@ -190,7 +196,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "pants/" + namecode + ".prefab"
-                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
+                    wb.save(excel_path)
                     last_row += 1
                     break
                 elif asset.__contains__(r'/T/'):
@@ -209,7 +215,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "headwear/" + namecode + ".prefab"
-                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
+                    wb.save(excel_path)
                     last_row += 1
                     break
                 elif asset.__contains__(r'/F/'):
@@ -228,7 +234,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "hair/" + namecode + ".prefab"
-                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
+                    wb.save(excel_path)
                     last_row += 1
                     break
                 # elif asset.__contains__(r'/M/'):
@@ -261,7 +267,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "baldric/" + namecode + ".prefab"
-                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
+                    wb.save(excel_path)
                     last_row += 1
                     break
                 elif asset.__contains__(r'/W/'):
@@ -276,7 +282,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = "0"
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "0"
-                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
+                    wb.save(excel_path)
                     last_row += 1
                     break
                 elif asset.__contains__(r'/X/'):
@@ -295,7 +301,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "shoes/" + namecode + ".prefab"
-                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
+                    wb.save(excel_path)
                     last_row += 1
                     break
                 elif asset.__contains__(r'/Y/'):
@@ -314,7 +320,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "glasses/" + namecode + ".prefab"
-                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
+                    wb.save(excel_path)
                     last_row += 1
                     break
                 elif asset.__contains__(r'/S/'):
@@ -333,12 +339,12 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
                     ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "shirt/" + namecode + ".prefab"
-                    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
+                    wb.save(excel_path)
                     last_row += 1
                     break
 
 
-    wb.save("/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx")
+    wb.save(excel_path)
 
 # def WriteSubType():
 

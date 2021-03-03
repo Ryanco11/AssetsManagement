@@ -4,6 +4,20 @@ import shutil
 import datetime
 from pathlib import Path
 
+
+##################################################################################################
+##############################使用前请替换「unity工程」与「美术资源库」根目录路径##########################
+##################################################################################################
+#unity 工程项目根目录
+avatar_root_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject'
+#art rescourse 根目录
+art_root_path= r'/Users/ryanco/Projects/avatar_art_resources'
+##################################################################################################
+##################################################################################################
+##################################################################################################
+
+
+
 now = datetime.datetime.now()
 year = '{:02d}'.format(now.year)
 month = '{:02d}'.format(now.month)
@@ -14,18 +28,25 @@ day_month_year = '{}-{}-{} {}:{}'.format(year, month, day, hour, minute)
 
 print('day_month_year: ' + day_month_year)
 
-excel_path = r'/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx'
-project_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/'
-artsrc_path = r'/Users/ryanco/Projects/avatar_art_resources/'
+
+
+
+excel_path = avatar_root_path + r'/Assets/Editor/AssetsManagement/SuitExcel/服饰元表.xlsx'
+project_path = avatar_root_path + r'/'
+artsrc_path = avatar_root_path + r'/'
+
 unity_prefab_path = r'Assets/Art/BundleResources/Dress/'
 unity_asset_path = r'Assets/Art/model/coat/'
-asset_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art/model/coat/'
-prefab_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art/BundleResources/Dress/'
-fbx_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
-png_path = r'/Users/ryanco/Projects/avatar_art_resources/Dress/'
-sprite_path = r'Assets/Art/BundleResources/Sprites/'
+unity_sprite_path = r'Assets/Art/BundleResources/Sprites/'
 
-asset_sock_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art/BundleResources/Textures/'
+asset_path = avatar_root_path + r'/Assets/Art/model/coat/'
+prefab_path = avatar_root_path + r'/Assets/Art/BundleResources/Dress/'
+asset_sock_path = avatar_root_path + r'/Assets/Art/BundleResources/Textures/'
+
+fbx_path = art_root_path + r'/Dress/'
+png_path = art_root_path + r'/Dress/'
+
+
 
 #get excel
 wb = openpyxl.load_workbook(excel_path)
@@ -347,7 +368,7 @@ def MovePng(namecode, new_asset_list, dress_type):
 
                 if not asset.__contains__("_mask") and not asset.__contains__("_H"):
                     sprite_count += 1
-                    text = sprite_path + dress_type + "/" + os.path.basename(asset)
+                    text = unity_sprite_path + dress_type + "/" + os.path.basename(asset)
                     sprite_text += "|-|" + text
 
     # fbx_text = str(fbx_count) + fbx_text
@@ -447,7 +468,7 @@ def MoveFiles(namecode, new_asset_list, dress_type):
 
                 if not asset.__contains__("_mask") and not asset.__contains__("_H"):
                     sprite_count += 1
-                    text = sprite_path + dress_type + "/" + os.path.basename(asset)
+                    text = unity_sprite_path + dress_type + "/" + os.path.basename(asset)
                     sprite_text += "|-|" + text
 
                 # if not asset.__contains__("_0"):

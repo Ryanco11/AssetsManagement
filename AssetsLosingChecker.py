@@ -1,9 +1,18 @@
 import openpyxl
 import os
 
-excel_path = r'/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx'
-project_art_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art'
-project_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject'
+##################################################################################################
+##############################使用前请替换「unity工程」根目录路径######################################
+##################################################################################################
+#unity 工程项目根目录
+avatar_root_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject'
+##################################################################################################
+##################################################################################################
+##################################################################################################
+
+excel_path = avatar_root_path + r'/Assets/Editor/AssetsManagement/SuitExcel/服饰元表.xlsx'
+project_art_path = avatar_root_path + r'/Assets/Art'
+project_path = avatar_root_path
 
 #get excel
 wb = openpyxl.load_workbook(excel_path)

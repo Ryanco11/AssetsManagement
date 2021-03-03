@@ -368,8 +368,8 @@ def MovePng(namecode, new_asset_list, dress_type):
                     sprite_text += "|-|" + text
 
     # fbx_text = str(fbx_count) + fbx_text
-    png_text = str(png_count) + png_text
-    sprite_text = str(sprite_count) + sprite_text
+    png_text = (str(png_count) + png_text).replace("\\", "/")
+    sprite_text = (str(sprite_count) + sprite_text).replace("\\", "/")
     print("sprite_text:" + sprite_text)
     return png_text, fbx_text, sprite_text
 
@@ -472,9 +472,9 @@ def MoveFiles(namecode, new_asset_list, dress_type):
                 #     sprite_text = sprite_text.replace(text, "")
                 #     sprite_text = sprite_text.replace("|-|", "")
 
-    fbx_text = str(fbx_count) + fbx_text
-    png_text = str(png_count) + png_text
-    sprite_text = str(sprite_count) + sprite_text
+    fbx_text = (str(fbx_count) + fbx_text).replace("\\", "/")
+    png_text = (str(png_count) + png_text).replace("\\", "/")
+    sprite_text = (str(sprite_count) + sprite_text).replace("\\", "/")
     print("sprite_text:" + sprite_text)
     return png_text, fbx_text, sprite_text, muti
 

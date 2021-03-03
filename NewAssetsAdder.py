@@ -166,7 +166,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "suit\\" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = ("1|-|" + unity_prefab_path + "suit\\" + namecode + ".prefab").replace("\\", "/")
                     wb.save(excel_path)
                     last_row += 1
                     break
@@ -185,7 +185,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "pants\\" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = ("1|-|" + unity_prefab_path + "pants\\" + namecode + ".prefab").replace("\\", "/")
                     wb.save(excel_path)
                     last_row += 1
                     break
@@ -204,7 +204,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "headwear\\" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = ("1|-|" + unity_prefab_path + "headwear\\" + namecode + ".prefab").replace("\\", "/")
                     wb.save(excel_path)
                     last_row += 1
                     break
@@ -223,7 +223,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "hair\\" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = ("1|-|" + unity_prefab_path + "hair\\" + namecode + ".prefab").replace("\\", "/")
                     wb.save(excel_path)
                     last_row += 1
                     break
@@ -256,7 +256,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "baldric\\" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = ("1|-|" + unity_prefab_path + "baldric\\" + namecode + ".prefab").replace("\\", "/")
                     wb.save(excel_path)
                     last_row += 1
                     break
@@ -290,7 +290,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "shoes\\" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = ("1|-|" + unity_prefab_path + "shoes\\" + namecode + ".prefab").replace("\\", "/")
                     wb.save(excel_path)
                     last_row += 1
                     break
@@ -309,7 +309,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "glasses\\" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = ("1|-|" + unity_prefab_path + "glasses\\" + namecode + ".prefab").replace("\\", "/")
                     wb.save(excel_path)
                     last_row += 1
                     break
@@ -328,7 +328,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "shirt\\" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = ("1|-|" + unity_prefab_path + "shirt\\" + namecode + ".prefab").replace("\\", "/")
                     wb.save(excel_path)
                     last_row += 1
                     break

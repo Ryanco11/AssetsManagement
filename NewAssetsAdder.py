@@ -9,9 +9,9 @@ from pathlib import Path
 ##############################使用前请替换「unity工程」与「美术资源库」根目录路径##########################
 ##################################################################################################
 #unity 工程项目根目录
-avatar_root_path = r'Z:\Users\ryanco\Projects\AndoidProject\wonder_party\avatarProject'
+avatar_root_path = "Y:\\Projects\\AndoidProject\\wonder_party\\avatarProject"
 #art rescourse 根目录
-art_root_path= r'Z:\Users\ryanco\Projects\avatar_art_resources'
+art_root_path= "Y:\\Projects\\avatar_art_resources"
 ##################################################################################################
 ##################################################################################################
 ##################################################################################################
@@ -31,20 +31,20 @@ print('day_month_year: ' + day_month_year)
 
 
 
-excel_path = avatar_root_path + r'\Assets\Editor\AssetsManagement\SuitExcel\服饰元表.xlsx'
-project_path = avatar_root_path + r'\\'
-artsrc_path = art_root_path + r'\\'
+excel_path = avatar_root_path + "\\Assets\\Editor\\AssetsManagement\\SuitExcel\\服饰元表.xlsx"
+project_path = avatar_root_path + "\\"
+artsrc_path = art_root_path + "\\"
 
-unity_prefab_path = r'Assets\Art\BundleResources\Dress\\'
-unity_asset_path = r'Assets\Art\model\coat\\'
-unity_sprite_path = r'Assets\Art\BundleResources\Sprites\\'
+unity_prefab_path = "Assets\\Art\\BundleResources\\Dress\\"
+unity_asset_path = "Assets\\Art\\model\\coat\\"
+unity_sprite_path = "Assets\\Art\\BundleResources\\Sprites\\"
 
-asset_path = avatar_root_path + r'\Assets\Art\model\coat\\'
-prefab_path = avatar_root_path + r'\Assets\Art\BundleResources\Dress\\'
-asset_sock_path = avatar_root_path + r'\Assets\Art\BundleResources\Textures\\'
+asset_path = avatar_root_path + "\\Assets\\Art\\model\\coat\\"
+prefab_path = avatar_root_path + "\\Assets\\Art\\BundleResources\\Dress\\"
+asset_sock_path = avatar_root_path + "\\Assets\\Art\\BundleResources\\Textures\\"
 
-fbx_path = art_root_path + r'\Dress\\'
-png_path = art_root_path + r'\Dress\\'
+fbx_path = art_root_path + "\\Dress\\"
+png_path = art_root_path + "\\Dress\\"
 
 
 
@@ -127,7 +127,7 @@ def GetNewAssetInfo():
     #sort by name code
         #get new name code list
     for asset in asset_list:
-        mt_namecode_list.append(asset.split(r'\\')[-2])
+        mt_namecode_list.append(asset.split("\\")[-2])
     print(mt_namecode_list)
 
         #remove mt name code
@@ -151,7 +151,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
             if asset.__contains__(namecode):
                 #for specfic file path with its namecode
                 #write type
-                if asset.__contains__(r'\A\\') or asset.__contains__(r'\Q_长\\'):
+                if asset.__contains__("\\A\\") or asset.__contains__("\\Q_长\\"):
                     print("write in suit")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -170,7 +170,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     wb.save(excel_path)
                     last_row += 1
                     break
-                elif asset.__contains__(r'\K\\') or asset.__contains__(r'\Q_短\\'):
+                elif asset.__contains__("\\K\\") or asset.__contains__("\\Q_短\\"):
                     print("write in pants")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -189,7 +189,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     wb.save(excel_path)
                     last_row += 1
                     break
-                elif asset.__contains__(r'\T\\'):
+                elif asset.__contains__("\\T\\"):
                     print("write in headwear")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -208,7 +208,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     wb.save(excel_path)
                     last_row += 1
                     break
-                elif asset.__contains__(r'\F\\'):
+                elif asset.__contains__("\\F\\"):
                     print("write in hair")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -227,7 +227,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     wb.save(excel_path)
                     last_row += 1
                     break
-                # elif asset.__contains__(r'\\M\\'):
+                # elif asset.__contains__("\\M\\"):
                 #     print("write in hair")
                 #     ws.cell(last_row, 4).value = namecode
                 #     ws.cell(last_row, 5).value = "hair"
@@ -241,7 +241,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                 #     ws.cell(last_row, 7).value = unity_prefab_path + "hair\\" + namecode + ".prefab"
                 #     last_row += 1
                 #     break
-                elif asset.__contains__(r'\QT\\'):
+                elif asset.__contains__("\\QT\\"):
                     print("write in bladic")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -260,7 +260,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     wb.save(excel_path)
                     last_row += 1
                     break
-                elif asset.__contains__(r'\W\\'):
+                elif asset.__contains__("\\W\\"):
                     print("write in sock")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -275,7 +275,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     wb.save(excel_path)
                     last_row += 1
                     break
-                elif asset.__contains__(r'\X\\'):
+                elif asset.__contains__("\\X\\"):
                     print("write in shoes")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -294,7 +294,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     wb.save(excel_path)
                     last_row += 1
                     break
-                elif asset.__contains__(r'\Y\\'):
+                elif asset.__contains__("\\Y\\"):
                     print("write in glasses")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -313,7 +313,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     wb.save(excel_path)
                     last_row += 1
                     break
-                elif asset.__contains__(r'\S\\'):
+                elif asset.__contains__("\\S\\"):
                     print("write in shirt")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode

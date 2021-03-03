@@ -5,17 +5,17 @@ import os
 ##############################使用前请替换「unity工程」根目录路径######################################
 ##################################################################################################
 #unity 工程项目根目录
-avatar_root_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject'
+avatar_root_path = r'Z:\Users\ryanco\Projects\AndoidProject\wonder_party\avatarProject'
 ##################################################################################################
 ##################################################################################################
 ##################################################################################################
 
 
-excel_path = avatar_root_path + r'/Assets/Editor/AssetsManagement/SuitExcel/服饰元表.xlsx'
-project_path = avatar_root_path + r'/'
-prefab_path = avatar_root_path + r'/Assets/Art/BundleResources/Dress'
-assets_path = avatar_root_path + r'/Assets/Art/model/coat'
-sprite_path = avatar_root_path + r'/Assets/Art/BundleResources/Sprites'
+excel_path = avatar_root_path + r'\Assets/Editor\AssetsManagement\SuitExcel\服饰元表.xlsx'
+project_path = avatar_root_path + r'\\'
+prefab_path = avatar_root_path + r'\Assets\Art\BundleResources\Dress'
+assets_path = avatar_root_path + r'\Assets\Art\model\coat'
+sprite_path = avatar_root_path + r'\Assets\Art\BundleResources\Sprites'
 
 
 wb = openpyxl.load_workbook(excel_path)
@@ -52,7 +52,7 @@ def DeleteCell(cell_value):
             continue
 
         #delete every file
-        delete_file_path = project_path + path
+        delete_file_path = project_path + path.replace('/', '\\')
         os.remove(delete_file_path)
         print("Delete : " + delete_file_path)
 

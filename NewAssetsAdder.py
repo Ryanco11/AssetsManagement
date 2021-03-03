@@ -31,20 +31,20 @@ print('day_month_year: ' + day_month_year)
 
 
 
-excel_path = avatar_root_path + r'/Assets/Editor/AssetsManagement/SuitExcel/服饰元表.xlsx'
-project_path = avatar_root_path + r'/'
-artsrc_path = art_root_path + r'/'
+excel_path = avatar_root_path + r'\\Assets\\Editor\\AssetsManagement\\SuitExcel\\服饰元表.xlsx'
+project_path = avatar_root_path + r'\\'
+artsrc_path = art_root_path + r'\\'
 
-unity_prefab_path = r'Assets/Art/BundleResources/Dress/'
-unity_asset_path = r'Assets/Art/model/coat/'
-unity_sprite_path = r'Assets/Art/BundleResources/Sprites/'
+unity_prefab_path = r'Assets\\Art\\BundleResources\\Dress\\'
+unity_asset_path = r'Assets\\Art\\model\\coat\\'
+unity_sprite_path = r'Assets\\Art\\BundleResources\\Sprites\\'
 
-asset_path = avatar_root_path + r'/Assets/Art/model/coat/'
-prefab_path = avatar_root_path + r'/Assets/Art/BundleResources/Dress/'
-asset_sock_path = avatar_root_path + r'/Assets/Art/BundleResources/Textures/'
+asset_path = avatar_root_path + r'\\Assets\\Art\\model\\coat\\'
+prefab_path = avatar_root_path + r'\\Assets\\Art\\BundleResources\\Dress\\'
+asset_sock_path = avatar_root_path + r'\\Assets\\Art\\BundleResources\\Textures\\'
 
-fbx_path = art_root_path + r'/Dress/'
-png_path = art_root_path + r'/Dress/'
+fbx_path = art_root_path + r'\\Dress\\'
+png_path = art_root_path + r'\\Dress\\'
 
 
 
@@ -131,7 +131,7 @@ def GetNewAssetInfo():
     #sort by name code
         #get new name code list
     for asset in asset_list:
-        mt_namecode_list.append(asset.split(r'/')[-2])
+        mt_namecode_list.append(asset.split(r'\\')[-2])
     print(mt_namecode_list)
 
         #remove mt name code
@@ -155,7 +155,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
             if asset.__contains__(namecode):
                 #for specfic file path with its namecode
                 #write type
-                if asset.__contains__(r'/A/') or asset.__contains__(r'/Q_长/'):
+                if asset.__contains__(r'\\A\\') or asset.__contains__(r'\\Q_长\\'):
                     print("write in suit")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -170,11 +170,11 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "suit/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "suit\\" + namecode + ".prefab"
                     wb.save(excel_path)
                     last_row += 1
                     break
-                elif asset.__contains__(r'/K/') or asset.__contains__(r'/Q_短/'):
+                elif asset.__contains__(r'\\K\\') or asset.__contains__(r'\\Q_短\\'):
                     print("write in pants")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -189,11 +189,11 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "pants/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "pants\\" + namecode + ".prefab"
                     wb.save(excel_path)
                     last_row += 1
                     break
-                elif asset.__contains__(r'/T/'):
+                elif asset.__contains__(r'\\T\\'):
                     print("write in headwear")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -208,11 +208,11 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "headwear/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "headwear\\" + namecode + ".prefab"
                     wb.save(excel_path)
                     last_row += 1
                     break
-                elif asset.__contains__(r'/F/'):
+                elif asset.__contains__(r'\\F\\'):
                     print("write in hair")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -227,11 +227,11 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "hair/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "hair\\" + namecode + ".prefab"
                     wb.save(excel_path)
                     last_row += 1
                     break
-                # elif asset.__contains__(r'/M/'):
+                # elif asset.__contains__(r'\\M\\'):
                 #     print("write in hair")
                 #     ws.cell(last_row, 4).value = namecode
                 #     ws.cell(last_row, 5).value = "hair"
@@ -242,10 +242,10 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                 #     mat_text = fbx_text.replace("FBX", "mat")
                 #     mat_text = mat_text.replace("fbx", "mat")
                 #     ws.cell(last_row, 14).value = mat_text
-                #     ws.cell(last_row, 7).value = unity_prefab_path + "hair/" + namecode + ".prefab"
+                #     ws.cell(last_row, 7).value = unity_prefab_path + "hair\\" + namecode + ".prefab"
                 #     last_row += 1
                 #     break
-                elif asset.__contains__(r'/QT/'):
+                elif asset.__contains__(r'\\QT\\'):
                     print("write in bladic")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -260,11 +260,11 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "baldric/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "baldric\\" + namecode + ".prefab"
                     wb.save(excel_path)
                     last_row += 1
                     break
-                elif asset.__contains__(r'/W/'):
+                elif asset.__contains__(r'\\W\\'):
                     print("write in sock")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -279,7 +279,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     wb.save(excel_path)
                     last_row += 1
                     break
-                elif asset.__contains__(r'/X/'):
+                elif asset.__contains__(r'\\X\\'):
                     print("write in shoes")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -294,11 +294,11 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "shoes/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "shoes\\" + namecode + ".prefab"
                     wb.save(excel_path)
                     last_row += 1
                     break
-                elif asset.__contains__(r'/Y/'):
+                elif asset.__contains__(r'\\Y\\'):
                     print("write in glasses")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -313,11 +313,11 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "glasses/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "glasses\\" + namecode + ".prefab"
                     wb.save(excel_path)
                     last_row += 1
                     break
-                elif asset.__contains__(r'/S/'):
+                elif asset.__contains__(r'\\S\\'):
                     print("write in shirt")
                     ws.cell(last_row, 3).value = day_month_year
                     ws.cell(last_row, 4).value = namecode
@@ -332,7 +332,7 @@ def ProcessAssetInfo(new_asset_list ,new_name_list):
                     mat_text = mat_text.replace("fbx", "mat")
                     ws.cell(last_row, 14).value = mat_text
                     ws.cell(last_row, 16).value = sprite_text
-                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "shirt/" + namecode + ".prefab"
+                    ws.cell(last_row, 7).value = "1|-|" + unity_prefab_path + "shirt\\" + namecode + ".prefab"
                     wb.save(excel_path)
                     last_row += 1
                     break
@@ -359,16 +359,16 @@ def MovePng(namecode, new_asset_list, dress_type):
             path_to_create = asset_sock_path + dress_type
 
             # copy file to new folder
-            shutil.copy2(asset, path_to_create)  # target filename is /dst/dir/file.ext
+            shutil.copy2(asset, path_to_create)  # target filename is \\dst\\dir\\file.ext
 
             if asset.lower().endswith(".png"):
                 png_count += 1
-                text = path_to_create + "/" + os.path.basename(asset)
+                text = path_to_create + "\\" + os.path.basename(asset)
                 png_text += "|-|" + text.replace(project_path, "")
 
                 if not asset.__contains__("_mask") and not asset.__contains__("_H"):
                     sprite_count += 1
-                    text = unity_sprite_path + dress_type + "/" + os.path.basename(asset)
+                    text = unity_sprite_path + dress_type + "\\" + os.path.basename(asset)
                     sprite_text += "|-|" + text
 
     # fbx_text = str(fbx_count) + fbx_text
@@ -399,7 +399,7 @@ def MoveFiles(namecode, new_asset_list, dress_type):
 
             if not muti:
                 ###normal asset
-                path_to_create = asset_path + dress_type + "/" + namecode
+                path_to_create = asset_path + dress_type + "\\" + namecode
                 if os.path.isdir(path_to_create):
                     print("Exists")
                 else:
@@ -411,18 +411,18 @@ def MoveFiles(namecode, new_asset_list, dress_type):
                         print("Successfully created the directory %s " % path_to_create)
 
                 # copy file to new folder
-                shutil.copy2(asset, path_to_create)  # target filename is /dst/dir/file.ext
+                shutil.copy2(asset, path_to_create)  # target filename is \\dst\\dir\\file.ext
 
             else:
                 # mutli assets
                 # for _01 _02... textures
                 if asset.__contains__("_0") and dress_type != "hair" and asset.lower().endswith(".png"):
                     #create root folder
-                    if not os.path.isdir(prefab_path + dress_type + "/" + namecode):
-                        os.mkdir(prefab_path + dress_type + "/" + namecode)
+                    if not os.path.isdir(prefab_path + dress_type + "\\" + namecode):
+                        os.mkdir(prefab_path + dress_type + "\\" + namecode)
 
                     #create texture fodler
-                    pfb_path_to_create = prefab_path + dress_type + "/" + namecode + "/texture"
+                    pfb_path_to_create = prefab_path + dress_type + "\\" + namecode + "\\texture"
                     if os.path.isdir(pfb_path_to_create):
                         print("Exists")
                     else:
@@ -434,11 +434,11 @@ def MoveFiles(namecode, new_asset_list, dress_type):
                             print("Successfully created the directory %s " % pfb_path_to_create)
 
                     # copy file to new folder
-                    shutil.copy2(asset, pfb_path_to_create)  # target filename is /dst/dir/file.ext
+                    shutil.copy2(asset, pfb_path_to_create)  # target filename is \\dst\\dir\\file.ext
 
                 else:
                     ###normal asset
-                    path_to_create = asset_path + dress_type + "/" + namecode
+                    path_to_create = asset_path + dress_type + "\\" + namecode
                     if os.path.isdir(path_to_create):
                         print("Exists")
                     else:
@@ -450,25 +450,25 @@ def MoveFiles(namecode, new_asset_list, dress_type):
                             print("Successfully created the directory %s " % path_to_create)
 
                     # copy file to new folder
-                    shutil.copy2(asset, path_to_create)  # target filename is /dst/dir/file.ext
+                    shutil.copy2(asset, path_to_create)  # target filename is \\dst\\dir\\file.ext
 
             ##get png and fbx text
             if asset.lower().endswith(".fbx"):
                 fbx_count += 1
-                text = path_to_create + "/" + os.path.basename(asset)
+                text = path_to_create + "\\" + os.path.basename(asset)
                 fbx_text += "|-|" + text.replace(project_path, "")
             elif asset.lower().endswith(".png"):
                 png_count += 1
                 if muti and asset.__contains__("_0"):
-                    text = prefab_path + dress_type + "/" + namecode + "/texture" + "/" + os.path.basename(asset)
+                    text = prefab_path + dress_type + "\\" + namecode + "\\texture" + "\\" + os.path.basename(asset)
                     png_text += "|-|" + text.replace(project_path, "")
                 else:
-                    text = path_to_create + "/" + os.path.basename(asset)
+                    text = path_to_create + "\\" + os.path.basename(asset)
                     png_text += "|-|" + text.replace(project_path, "")
 
                 if not asset.__contains__("_mask") and not asset.__contains__("_H"):
                     sprite_count += 1
-                    text = unity_sprite_path + dress_type + "/" + os.path.basename(asset)
+                    text = unity_sprite_path + dress_type + "\\" + os.path.basename(asset)
                     sprite_text += "|-|" + text
 
                 # if not asset.__contains__("_0"):

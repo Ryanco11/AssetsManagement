@@ -1,6 +1,6 @@
 0.AssetsListWriter :
-    Read current unity project , write all suits asset info into excel.
-    Not for regular usage.
+    - Read current unity project , write all suits asset info into excel.
+    - Not for regular usage.
 
 ##############################################################################
 

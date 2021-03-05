@@ -31,7 +31,7 @@ print('day_month_year: ' + day_month_year)
 
 
 
-excel_path = avatar_root_path + r'/Assets/Editor/AssetsManagement/SuitExcel/服饰元表.xlsx'
+excel_path = avatar_root_path + r'/Assets/Editor/AssetsManagement/SuitExcel/SuitExcel.xlsx'
 project_path = avatar_root_path + r'/'
 artsrc_path = art_root_path + r'/'
 

@@ -10,7 +10,7 @@ avatar_root_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarPro
 ##################################################################################################
 ##################################################################################################
 
-excel_path = avatar_root_path + r'/Assets/Editor/AssetsManagement/SuitExcel/服饰元表.xlsx'
+excel_path = avatar_root_path + r'/Assets/Editor/AssetsManagement/SuitExcel/SuitExcel.xlsx'
 project_art_path = avatar_root_path + r'/Assets/Art'
 project_path = avatar_root_path
 

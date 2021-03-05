@@ -11,7 +11,7 @@ avatar_root_path = r'Z:\Users\ryanco\Projects\AndoidProject\wonder_party\avatarP
 ##################################################################################################
 
 
-excel_path = avatar_root_path + r'\Assets/Editor\AssetsManagement\SuitExcel\服饰元表.xlsx'
+excel_path = avatar_root_path + r'\Assets/Editor\AssetsManagement\SuitExcel\SuitExcel.xlsx'
 project_path = avatar_root_path + r'\\'
 prefab_path = avatar_root_path + r'\Assets\Art\BundleResources\Dress'
 assets_path = avatar_root_path + r'\Assets\Art\model\coat'

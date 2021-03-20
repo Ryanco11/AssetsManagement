@@ -9,7 +9,7 @@ from pathlib import Path
 ##############################使用前请替换「unity工程」与「美术资源库」根目录路径##########################
 ##################################################################################################
 #unity 工程项目根目录
-avatar_root_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject'
+avatar_root_path = r'/Users/ryanco/Projects/Master/wonder_party/avatarProject'
 #art rescourse 根目录
 art_root_path= r'/Users/ryanco/Projects/avatar_art_resources'
 ##################################################################################################

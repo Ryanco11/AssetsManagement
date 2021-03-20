@@ -9,10 +9,10 @@ from openpyxl.styles import Color, PatternFill, Font, Border
 pinkFill = PatternFill(start_color='FFA40D',end_color='FFA40D',fill_type='solid')
 
 excel_path = r'/Users/ryanco/Desktop/资源元表/服饰元表Excel.xlsx'
-project_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/'
-prefab_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art/BundleResources/Dress'
-assets_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art/model/coat'
-sprite_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject/Assets/Art/BundleResources/Sprites'
+project_path = r'/Users/ryanco/Projects/Master/wonder_party/avatarProject/'
+prefab_path = r'/Users/ryanco/Projects/Master/wonder_party/avatarProject/Assets/Art/BundleResources/Dress'
+assets_path = r'/Users/ryanco/Projects/Master/wonder_party/avatarProject/Assets/Art/model/coat'
+sprite_path = r'/Users/ryanco/Projects/Master/wonder_party/avatarProject/Assets/Art/BundleResources/Sprites'
 
 #get excel
 wb = openpyxl.load_workbook(excel_path)

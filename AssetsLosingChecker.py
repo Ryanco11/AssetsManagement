@@ -5,7 +5,7 @@ import os
 ##############################使用前请替换「unity工程」根目录路径######################################
 ##################################################################################################
 #unity 工程项目根目录
-avatar_root_path = r'/Users/ryanco/Projects/AndoidProject/wonder_party/avatarProject'
+avatar_root_path = r'/Users/ryanco/Projects/Master/wonder_party/avatarProject'
 ##################################################################################################
 ##################################################################################################
 ##################################################################################################
@@ -109,9 +109,9 @@ def GetLastRow(ws):
 
 ###Start
 #1. Check Lagecy Assets
-# last_row = GetLastRow(lws)
-# AccessAssetPath(last_row, lws)
-# print("以上为「老」资源丢失情况")
+last_row = GetLastRow(lws)
+AccessAssetPath(last_row, lws)
+print("以上为「老」资源丢失情况")
 
 #2. Cehck New Added Asset Since 2021-02-21
 last_row = GetLastRow(nws)

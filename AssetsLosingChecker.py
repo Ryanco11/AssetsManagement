@@ -109,9 +109,9 @@ def GetLastRow(ws):
 
 ###Start
 #1. Check Lagecy Assets
-last_row = GetLastRow(lws)
-AccessAssetPath(last_row, lws)
-print("以上为「老」资源丢失情况")
+# last_row = GetLastRow(lws)
+# AccessAssetPath(last_row, lws)
+# print("以上为「老」资源丢失情况")
 
 #2. Cehck New Added Asset Since 2021-02-21
 last_row = GetLastRow(nws)

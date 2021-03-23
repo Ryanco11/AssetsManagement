@@ -372,7 +372,7 @@ def MovePng(namecode, new_asset_list, dress_type):
                 text = path_to_create + "/" + os.path.basename(asset)
                 png_text += "|-|" + text.replace(project_path, "")
 
-                if not asset.__contains__("_mask") and not asset.__contains__("_H"):
+                if not asset.lower().__contains__("_mask") and not asset.__contains__("_H"):
                     sprite_count += 1
                     text = unity_sprite_path + dress_type + "/" + os.path.basename(asset)
                     sprite_text += "|-|" + text
@@ -472,7 +472,7 @@ def MoveFiles(namecode, new_asset_list, dress_type):
                     text = path_to_create + "/" + os.path.basename(asset)
                     png_text += "|-|" + text.replace(project_path, "")
 
-                if not asset.__contains__("_mask") and not asset.__contains__("_H"):
+                if not asset.lower().__contains__("_mask") and not asset.__contains__("_H"):
                     sprite_count += 1
                     text = unity_sprite_path + dress_type + "/" + os.path.basename(asset)
                     sprite_text += "|-|" + text

@@ -384,11 +384,18 @@ def MoveFiles(namecode, new_asset_list, dress_type):
     png_count = 0
     sprite_count = 0
     muti = False
+    hair = False
 
     for asset in new_asset_list:
         if asset.__contains__(namecode) and asset.__contains__("_01"):
             muti = True
 
+    # 规避头发
+    if muti == True:
+        for asset in new_asset_list:
+            if asset.__contains__(namecode) and asset.lower().__contains__("_h"):
+                muti = False
+                hair = True
     for asset in new_asset_list:
         if asset.__contains__(namecode):
             #create folder in unity model folder
@@ -475,6 +482,11 @@ def MoveFiles(namecode, new_asset_list, dress_type):
     fbx_text = (str(fbx_count) + fbx_text).replace("\\", "/")
     png_text = (str(png_count) + png_text).replace("\\", "/")
     sprite_text = (str(sprite_count) + sprite_text).replace("\\", "/")
+
+    if hair == True:
+        print("hair is true")
+        sprite_text = sprite_text.replace('_01', '')
+
     print("sprite_text:" + sprite_text)
     return png_text, fbx_text, sprite_text, muti
 
